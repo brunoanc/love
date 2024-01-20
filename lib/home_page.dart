@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'pages/frases.dart';
 import 'pages/especial.dart';
 import 'pages/audios.dart';
-import 'pages/configuracion.dart';
+import 'pages/mensajes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                   width: 40,
                   height: 40,
                   repeat: false,
-                  'assets/wired-outline-412-gift.json'
+                  'assets/wired-outline-1103-confetti.json'
                 ),
               ),
             inActiveItem: OverflowBox(
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                 child: Image.asset(
                   width: 40,
                   height: 40,
-                  'assets/wired-outline-412-gift.png'
+                  'assets/wired-outline-1103-confetti.png'
                 ),
               ),
           ),
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                   width: 40,
                   height: 40,
                   repeat: false,
-                  'assets/wired-outline-1330-rest-api.json'
+                  'assets/wired-outline-177-envelope-send.json'
                 ),
               ),
             inActiveItem: OverflowBox(
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                 child: Image.asset(
                   width: 40,
                   height: 40,
-                  'assets/wired-outline-1330-rest-api.png'
+                  'assets/wired-outline-177-envelope-send.png'
                 ),
               ),
           ),
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
           const Frases(),
           const Especial(),
           const Audios(),
-          const Configuracion(),
+          const Mensajes(),
         ][currentPageIndex],
       ),
     );
