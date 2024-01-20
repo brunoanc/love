@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_database/firebase_database.dart';
 import 'firebase_options.dart';
-import 'onboarding_screen.dart';
+import 'first_time_intro.dart';
 //import 'dart:io';
 
 Future<void> main() async {
@@ -33,7 +33,6 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        //colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
           brightness: Brightness.dark,
@@ -43,7 +42,7 @@ class MainApp extends StatelessWidget {
           onSurface: Colors.white,
         ),
       ),
-      home: const OnBoardingScreen(),
+      home: const FirstTimeIntro(),
     );
   }
 }
