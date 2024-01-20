@@ -6,6 +6,7 @@ import 'pages/frases.dart';
 import 'pages/especial.dart';
 import 'pages/audios.dart';
 import 'pages/mensajes.dart';
+import 'pages/configuracion.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,103 +33,128 @@ class _HomePageState extends State<HomePage> {
         bottomBarItems: [
           BottomBarItem(
             activeItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Lottie.asset(
-                  width: 40,
-                  height: 40,
-                  repeat: false,
-                  'assets/wired-outline-20-love-heart.json'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Lottie.asset(
+                width: 40,
+                height: 40,
+                repeat: false,
+                'assets/wired-outline-20-love-heart.json'
               ),
+            ),
             inActiveItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Image.asset(
-                  width: 40,
-                  height: 40,
-                  'assets/wired-outline-20-love-heart.png'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Image.asset(
+                width: 40,
+                height: 40,
+                'assets/wired-outline-20-love-heart.png'
               ),
+            ),
           ),
           BottomBarItem(
             activeItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Lottie.asset(
-                  width: 40,
-                  height: 40,
-                  repeat: false,
-                  'assets/wired-outline-1103-confetti.json'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Lottie.asset(
+                width: 40,
+                height: 40,
+                repeat: false,
+                'assets/wired-outline-1103-confetti.json'
               ),
+            ),
             inActiveItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Image.asset(
-                  width: 40,
-                  height: 40,
-                  'assets/wired-outline-1103-confetti.png'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Image.asset(
+                width: 40,
+                height: 40,
+                'assets/wired-outline-1103-confetti.png'
               ),
+            ),
           ),
           BottomBarItem(
             activeItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Lottie.asset(
-                  width: 40,
-                  height: 40,
-                  repeat: false,
-                  'assets/wired-outline-188-microphone-recording.json'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Lottie.asset(
+                width: 40,
+                height: 40,
+                repeat: false,
+                'assets/wired-outline-188-microphone-recording.json'
               ),
+            ),
             inActiveItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Image.asset(
-                  width: 40,
-                  height: 40,
-                  'assets/wired-outline-188-microphone-recording.png'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Image.asset(
+                width: 40,
+                height: 40,
+                'assets/wired-outline-188-microphone-recording.png'
               ),
+            ),
           ),
           BottomBarItem(
             activeItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Lottie.asset(
-                  width: 40,
-                  height: 40,
-                  repeat: false,
-                  'assets/wired-outline-177-envelope-send.json'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Lottie.asset(
+                width: 40,
+                height: 40,
+                repeat: false,
+                'assets/wired-outline-177-envelope-send.json'
               ),
+            ),
             inActiveItem: OverflowBox(
-                minWidth: 0,
-                minHeight: 0,
-                maxWidth: double.infinity,
-                maxHeight: double.infinity,
-                child: Image.asset(
-                  width: 40,
-                  height: 40,
-                  'assets/wired-outline-177-envelope-send.png'
-                ),
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Image.asset(
+                width: 40,
+                height: 40,
+                'assets/wired-outline-177-envelope-send.png'
               ),
+            ),
+          ),
+          BottomBarItem(
+            activeItem: OverflowBox(
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Lottie.asset(
+                width: 40,
+                height: 40,
+                repeat: false,
+                'assets/wired-outline-1330-rest-api.json'
+              ),
+            ),
+            inActiveItem: OverflowBox(
+              minWidth: 0,
+              minHeight: 0,
+              maxWidth: double.infinity,
+              maxHeight: double.infinity,
+              child: Image.asset(
+                width: 40,
+                height: 40,
+                'assets/wired-outline-1330-rest-api.png'
+              ),
+            ),
           ),
         ],
         onTap: (index) {
@@ -151,6 +177,7 @@ class _HomePageState extends State<HomePage> {
           const Especial(),
           const Audios(),
           const Mensajes(),
+          const Configuracion(),
         ][currentPageIndex],
       ),
     );
