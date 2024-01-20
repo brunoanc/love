@@ -1,4 +1,11 @@
+import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'pages/frases.dart';
+import 'pages/especial.dart';
+import 'pages/audios.dart';
+import 'pages/configuracion.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,131 +16,143 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPageIndex = 0;
+  final NotchBottomBarController _controller = NotchBottomBarController(index: 0);
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
+      bottomNavigationBar: AnimatedNotchBottomBar(
+        notchBottomBarController: _controller,
+        showLabel: false,
+        //color: Colors.deepPurple.shade300,
+        color: theme.colorScheme.surface,
+        itemLabelStyle: const TextStyle(color: Color.fromARGB(255, 217, 217, 217)),
+        //notchColor: const Color.fromARGB(255, 191, 160, 248),
+        bottomBarItems: [
+          BottomBarItem(
+            activeItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Lottie.asset(
+                  width: 40,
+                  height: 40,
+                  repeat: false,
+                  'assets/wired-outline-20-love-heart.json'
+                ),
+              ),
+            inActiveItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Image.asset(
+                  width: 40,
+                  height: 40,
+                  'assets/wired-outline-20-love-heart.png'
+                ),
+              ),
+          ),
+          BottomBarItem(
+            activeItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Lottie.asset(
+                  width: 40,
+                  height: 40,
+                  repeat: false,
+                  'assets/wired-outline-412-gift.json'
+                ),
+              ),
+            inActiveItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Image.asset(
+                  width: 40,
+                  height: 40,
+                  'assets/wired-outline-412-gift.png'
+                ),
+              ),
+          ),
+          BottomBarItem(
+            activeItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Lottie.asset(
+                  width: 40,
+                  height: 40,
+                  repeat: false,
+                  'assets/wired-outline-188-microphone-recording.json'
+                ),
+              ),
+            inActiveItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Image.asset(
+                  width: 40,
+                  height: 40,
+                  'assets/wired-outline-188-microphone-recording.png'
+                ),
+              ),
+          ),
+          BottomBarItem(
+            activeItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Lottie.asset(
+                  width: 40,
+                  height: 40,
+                  repeat: false,
+                  'assets/wired-outline-1330-rest-api.json'
+                ),
+              ),
+            inActiveItem: OverflowBox(
+                minWidth: 0,
+                minHeight: 0,
+                maxWidth: double.infinity,
+                maxHeight: double.infinity,
+                child: Image.asset(
+                  width: 40,
+                  height: 40,
+                  'assets/wired-outline-1330-rest-api.png'
+                ),
+              ),
+          ),
+        ],
+        onTap: (index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        indicatorColor: theme.colorScheme.primaryContainer,
-        //backgroundColor: theme.colorScheme.primary,
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            selectedIcon: Icon(Icons.favorite),
-            icon: Icon(Icons.favorite_outline),
-            label: 'Frases',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.pets),
-            label: 'Gatos',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.settings),
-            label: 'Ajustes',
-          ),
-        ],
+        kIconSize: 24.0,
+        kBottomRadius: 28.0,
       ),
-      body: <Widget>[
-        DefaultTabController(
-          length: 2,
-          child: Scaffold(
-            appBar: AppBar(
-              flexibleSpace: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TabBar(
-                    indicatorColor: theme.colorScheme.onPrimary,
-                    tabs: [
-                      Tab(icon: Icon(Icons.today, color: theme.colorScheme.onPrimary)),
-                      Tab(icon: Icon(Icons.calendar_month, color: theme.colorScheme.onPrimary)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            body: const TabBarView(
-              children: [
-                Icon(Icons.today),
-                Icon(Icons.calendar_month),
-              ],
-            ),
-          ),
+      extendBody: true,
+      body: PageTransitionSwitcher(
+        transitionBuilder: (child, primaryAnimation, secondaryAnimation) => FadeThroughTransition(
+          animation: primaryAnimation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
         ),
-
-        DefaultTabController(
-          length: 3,
-          child: Scaffold(
-            appBar: AppBar(
-              flexibleSpace: const Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TabBar(
-                    tabs: [
-                      Tab(icon: Icon(Icons.directions_car)),
-                      Tab(icon: Icon(Icons.directions_transit)),
-                      Tab(icon: Icon(Icons.directions_bike)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            body: const TabBarView(
-              children: [
-                Icon(Icons.directions_car),
-                Icon(Icons.directions_transit),
-                Icon(Icons.directions_bike),
-              ],
-            ),
-          ),
-        ),
-
-        ListView.builder(
-          reverse: true,
-          itemCount: 2,
-          itemBuilder: (BuildContext context, int index) {
-            if (index == 0) {
-              return Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  margin: const EdgeInsets.all(8.0),
-                  padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: theme.colorScheme.primary,
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Text(
-                    'Hello',
-                    style: theme.textTheme.bodyLarge!
-                        .copyWith(color: theme.colorScheme.onPrimary),
-                  ),
-                ),
-              );
-            }
-            return Align(
-              alignment: Alignment.centerLeft,
-              child: Container(
-                margin: const EdgeInsets.all(8.0),
-                padding: const EdgeInsets.all(8.0),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary,
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Text(
-                  'Hi!',
-                  style: theme.textTheme.bodyLarge!
-                      .copyWith(color: theme.colorScheme.onPrimary),
-                ),
-              ),
-            );
-          },
-        ),
-      ][currentPageIndex],
+        child: <Widget>[
+          const Frases(),
+          const Especial(),
+          const Audios(),
+          const Configuracion(),
+        ][currentPageIndex],
+      ),
     );
   }
 }
