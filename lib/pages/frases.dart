@@ -24,11 +24,75 @@ class Frases extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            Icon(Icons.today),
-            Icon(Icons.calendar_month),
+            Scaffold(
+              body: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Tu mensajito de hoy es:",
+                      style: theme.textTheme.headlineSmall!.copyWith(
+                        color: theme.colorScheme.onPrimary,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 10),
+                    //BigCard(text: "Te amo con todo mi corazoncito bebé preciosa <3"),
+                    ElevatedButton(
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Text(
+                          "Revelar",
+                          style: theme.textTheme.displaySmall,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      onPressed: () {
+
+                      },
+                      
+                    ),
+                    const SizedBox(height: 10),
+                  ],
+                ),
+              ),
+            ),
+
+            const Icon(Icons.calendar_month),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class BigCard extends StatelessWidget {
+  const BigCard({
+    super.key,
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final style = theme.textTheme.displayMedium!.copyWith(
+      color: theme.colorScheme.onPrimary,
+    );
+
+    return Card(
+      color: theme.colorScheme.surface,
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+
+        // ↓ Make the following change.
+        child: Text(
+          text,
+          style: style,
+          textAlign: TextAlign.center,
         ),
       ),
     );

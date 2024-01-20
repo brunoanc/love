@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_database/firebase_database.dart';
+import 'package:intl/intl.dart';
 import 'firebase_options.dart';
 import 'first_time_intro.dart';
 //import 'dart:io';
@@ -10,9 +11,11 @@ import 'first_time_intro.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   /*FirebaseApp app =*/ await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   await FirebaseMessaging.instance.requestPermission(provisional: true);
-  await FirebaseMessaging.instance.subscribeToTopic("xime");
   await FirebaseMessaging.instance.getToken();
+  await FirebaseMessaging.instance.subscribeToTopic("xime");
+
   /*final userCredential = await FirebaseAuth.instance.signInAnonymously();
   String host = Platform.isAndroid ? 'http://10.0.2.2:9000/?ns=love-dbe0b' : 'http://localhost:9000/?ns=love-dbe0b';
   FirebaseDatabase database = FirebaseDatabase.instanceFor(
@@ -21,6 +24,10 @@ Future<void> main() async {
   );
   DatabaseReference ref = database.ref('users/${userCredential.user!.uid}/mensaje');
   await ref.set("te quierooooo <3");*/
+
+  final date = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  print(date);
+
   runApp(const MainApp());
 }
 
