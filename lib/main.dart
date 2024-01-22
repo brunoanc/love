@@ -14,7 +14,7 @@ Future<void> main() async {
 
   await FirebaseMessaging.instance.requestPermission(provisional: true);
   await FirebaseMessaging.instance.getToken();
-  await FirebaseMessaging.instance.subscribeToTopic("xime");
+  await FirebaseMessaging.instance.subscribeToTopic('xime');
 
   /*final userCredential = await FirebaseAuth.instance.signInAnonymously();
   String host = Platform.isAndroid ? 'http://10.0.2.2:9000/?ns=love-dbe0b' : 'http://localhost:9000/?ns=love-dbe0b';
@@ -23,7 +23,7 @@ Future<void> main() async {
     databaseURL: host,
   );
   DatabaseReference ref = database.ref('users/${userCredential.user!.uid}/mensaje');
-  await ref.set("te quierooooo <3");*/
+  await ref.set('te quierooooo <3');*/
 
   final date = DateFormat('yyyy-MM-dd').format(DateTime.now());
   print(date);

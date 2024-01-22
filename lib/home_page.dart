@@ -28,6 +28,7 @@ class _HomePageState extends State<HomePage> {
         showLabel: false,
         //color: Colors.deepPurple.shade300,
         color: theme.colorScheme.surface,
+        //color: Color(0xff3f008d),
         itemLabelStyle: const TextStyle(color: Color.fromARGB(255, 217, 217, 217)),
         //notchColor: const Color.fromARGB(255, 191, 160, 248),
         bottomBarItems: [
