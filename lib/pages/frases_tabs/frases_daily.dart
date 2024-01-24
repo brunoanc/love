@@ -103,31 +103,31 @@ class _FrasesDailyState extends State<FrasesDaily> {
                               setState(() {
                                 revealButtonStatus = 2;
                               });
-            
+
                               Future.delayed(const Duration(seconds: 5), () {
                                 setState(() {
                                   loadingButtonText = 'Buscando palabras lindas...';
                                   loadingButtonKey = const ValueKey(3);
                                 });
-            
+
                                 Future.delayed(const Duration(seconds: 5), () {
                                   setState(() {
                                     loadingButtonText = 'Escribiendo mensajito...';
                                     loadingButtonKey = const ValueKey(4);
                                   });
-            
+
                                   Future.delayed(const Duration(seconds: 5), () async {
                                     setState(() {
                                       revealButtonStatus = 3;
                                     });
-            
+
                                     await snapshot.data!.setString('last-uncovered', date);
                                   });
                                 });
                               });
                             },
                           ),
-            
+
                           2 => ElevatedButton(
                             key: loadingButtonKey,
                             onPressed: null,
@@ -156,9 +156,9 @@ class _FrasesDailyState extends State<FrasesDaily> {
                               ),
                             ),
                           ),
-            
+
                           3 => frase,
-            
+
                           _ => Container(),
                         }
                       );
