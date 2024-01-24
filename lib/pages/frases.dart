@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'frases_tabs/frases_daily.dart';
+import 'frases_tabs/frases_past.dart';
 
-class Frases extends StatelessWidget {
+class Frases extends StatefulWidget {
   const Frases({super.key});
 
   @override
+  State<Frases> createState() => _FrasesState();
+}
+
+class _FrasesState extends State<Frases> with AutomaticKeepAliveClientMixin {
+  @override
+  bool wantKeepAlive = true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     final ThemeData theme = Theme.of(context);
 
     return DefaultTabController(
@@ -28,7 +39,7 @@ class Frases extends StatelessWidget {
         body: const TabBarView(
           children: [
             FrasesDaily(),
-            Icon(Icons.calendar_month),
+            FrasesPast(),
           ],
         ),
       ),

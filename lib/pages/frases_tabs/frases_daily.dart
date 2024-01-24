@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../globals.dart' as globals;
+import 'package:flutter/cupertino.dart';
 
 class FrasesDaily extends StatefulWidget {
   const FrasesDaily({super.key});
@@ -75,27 +76,27 @@ class _FrasesDailyState extends State<FrasesDaily> {
                       return AnimatedSwitcher(
                         duration: const Duration(milliseconds: 200),
                         child: switch(revealButtonStatus) {
-                          1 => ElevatedButton(
+                          1 => CupertinoButton(
+                            padding: const EdgeInsets.fromLTRB(35, 20, 35, 20),
+                            borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
+                            color: theme.colorScheme.surface,
                             key: const ValueKey(1),
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                              child: FittedBox(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Lottie.asset(
-                                      width: 40,
-                                      height: 40,
-                                      'assets/animations/wired-outline-1865-shooting-stars.json'
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Text(
-                                      'Revelar',
-                                      style: theme.textTheme.displaySmall,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ],
-                                ),
+                            child: FittedBox(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Lottie.asset(
+                                    width: 40,
+                                    height: 40,
+                                    'assets/animations/wired-outline-1865-shooting-stars.json'
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Text(
+                                    'Revelar',
+                                    style: theme.textTheme.displaySmall,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
                               ),
                             ),
                             onPressed: () {
