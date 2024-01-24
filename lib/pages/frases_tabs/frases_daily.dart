@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../globals.dart' as globals;
 
 class FrasesDaily extends StatefulWidget {
   const FrasesDaily({super.key});
@@ -35,7 +36,7 @@ class _FrasesDailyState extends State<FrasesDaily> {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Text(
-          'Te quiero mucho mi amorcito precioso y bonito, ojalá nos casemos pronto pelaná, eres increible y espero que siempre estemos juntas, te adoro preciosa.',
+          globals.frasesMap[date] ?? '',
           style: theme.textTheme.titleLarge!.copyWith(
             fontWeight: FontWeight.normal,
           ),
