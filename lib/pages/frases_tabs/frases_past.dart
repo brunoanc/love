@@ -85,7 +85,7 @@ class FrasesPast extends StatelessWidget {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      "Seleccionar fecha",
+                      'Seleccionar fecha',
                       style: theme.textTheme.headlineMedium,
                       textAlign: TextAlign.center,
                     ),
