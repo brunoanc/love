@@ -29,75 +29,31 @@ class FrasesPast extends StatelessWidget {
               color: theme.colorScheme.surface,
               onPressed: () {
                 Future.delayed(const Duration(milliseconds: 20), () {
-                  /*showDatePicker(
-                    context: context,
-                    firstDate: DateTime(2024, 1, 23),
-                    lastDate: DateTime.now(),
-                  ).then((date) {
-                    if (date != null) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(
-                            'Selected: ${date.day}/${date.month}/${date.year}'),
-                      ));
-                    }
-                  });*/
                   showGeneralDialog<DateTime>(
                     context: context,
                     pageBuilder: (context, anim1, anim2) {
                       return Theme(
-                        data: Theme.of(context).copyWith(
-                          datePickerTheme: DatePickerThemeData(
-                            cancelButtonStyle: ElevatedButton.styleFrom(foregroundColor: Colors.white),
-                            confirmButtonStyle: ElevatedButton.styleFrom(foregroundColor: Colors.white),
-                            headerForegroundColor: Colors.white,
-                            dividerColor: Colors.deepPurple.shade100,
-                            weekdayStyle: TextStyle(color: Colors.deepPurple.shade500, fontWeight: FontWeight.w900),
-                            yearBackgroundColor: MaterialStateColor.resolveWith((states) {
-                              if (states.contains(MaterialState.selected)) {
-                                return Colors.deepPurple.shade500;
-                              }
-                              return Colors.transparent;
-                            }),
-                            yearForegroundColor: MaterialStateColor.resolveWith((states) {
-                              if  (states.contains(MaterialState.disabled)) {
-                                return Colors.white.withAlpha(101);
-                              }
-
-                              return Colors.white;
-                            }),
-                            dayBackgroundColor: MaterialStateColor.resolveWith((states) {
-                              if (states.contains(MaterialState.selected)) {
-                                return Colors.deepPurple.shade500;
-                              }
-                              return Colors.transparent;
-                            }),
-                            dayForegroundColor: MaterialStateColor.resolveWith((states) {
-                              if  (states.contains(MaterialState.disabled)) {
-                                return Colors.white.withAlpha(101);
-                              }
-
-                              return Colors.white;
-                            }),
-                            todayForegroundColor: MaterialStateProperty.all(const Color(0xff3f008d)),
-                            todayBackgroundColor: MaterialStateColor.resolveWith((states) {
-                              if (states.contains(MaterialState.selected)) {
-                                return Colors.white;
-                              }
-                              return Colors.transparent;
-                            }),
+                        data: ThemeData.from(
+                          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple).copyWith(
+                            surface: const Color(0xffd3bbff),
+                            onSurface: Colors.white,
+                            onSurfaceVariant: Colors.white,
                           ),
-                          colorScheme: Theme.of(context).colorScheme.copyWith(
-                            onSurface: const Color.fromARGB(255, 128, 78, 216),
-                            
-                          ),
-                        ),
-                        
+                        ).copyWith(datePickerTheme: DatePickerThemeData(
+                          shadowColor: const Color(0xff3f008d),
+                          dividerColor: Colors.deepPurple.shade300,
+                          weekdayStyle: TextStyle(fontWeight: FontWeight.w900, color: Colors.deepPurple.shade500),
+                          headerForegroundColor: Colors.deepPurple.shade500
+                        )),
+
                         child: DatePickerDialog(
+                          cancelText: 'Cancelar',
+                          confirmText: 'OK',
+                          helpText: 'Selecciona una fecha',
                           initialDate: DateTime.now().subtract(const Duration(days: 1)),
                           firstDate:	DateTime(2023, 1, 20),
                           lastDate: DateTime.now().subtract(const Duration(days: 1)),
                           initialEntryMode: DatePickerEntryMode.calendarOnly,
-                          
                         ),
                       );
                     },
