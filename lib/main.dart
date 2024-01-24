@@ -9,12 +9,12 @@ import 'first_time_intro/first_time_intro.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  /*FirebaseApp app =*/ await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  await FirebaseMessaging.instance.requestPermission(provisional: true);
-  await FirebaseMessaging.instance.getToken();
-  await FirebaseMessaging.instance.subscribeToTopic('xime');
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+    .then((value) => FirebaseMessaging.instance.requestPermission(provisional: true))
+    .then((value) => FirebaseMessaging.instance.subscribeToTopic('xime'));
 
+  // REMEMBER THERE MIGHT NOT BE WIFI
   /*final userCredential = await FirebaseAuth.instance.signInAnonymously();
   String host = Platform.isAndroid ? 'http://10.0.2.2:9000/?ns=love-dbe0b' : 'http://localhost:9000/?ns=love-dbe0b';
   FirebaseDatabase database = FirebaseDatabase.instanceFor(
