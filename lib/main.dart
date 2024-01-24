@@ -3,7 +3,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_database/firebase_database.dart';
-import 'package:intl/intl.dart';
 import 'firebase_options.dart';
 import 'first_time_intro.dart';
 //import 'dart:io';
@@ -24,9 +23,6 @@ Future<void> main() async {
   );
   DatabaseReference ref = database.ref('users/${userCredential.user!.uid}/mensaje');
   await ref.set('te quierooooo <3');*/
-
-  final date = DateFormat('yyyy-MM-dd').format(DateTime.now());
-  print(date);
 
   runApp(const MainApp());
 }
