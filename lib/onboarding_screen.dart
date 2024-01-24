@@ -13,7 +13,6 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-
   final PageController _controller = PageController();
 
   bool onFirstPage = true;
@@ -73,7 +72,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         return const HomePage();
                       }));
                     },
-                    child: const Icon(Icons.check, color: Colors.white), //const Text('Fin', style: TextStyle(color: Colors.white), textAlign: TextAlign.center),
+                    child: const Icon(Icons.check, color: Colors.white),
                   )
                   : GestureDetector(
                     onTap: () {
