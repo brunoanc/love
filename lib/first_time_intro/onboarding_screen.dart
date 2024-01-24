@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'intro_screens/intro_page_1.dart';
-import 'intro_screens/intro_page_2.dart';
-import 'intro_screens/intro_page_3.dart';
-import 'home_page.dart';
+import 'intro_pages/intro_page_1.dart';
+import 'intro_pages/intro_page_2.dart';
+import 'intro_pages/intro_page_3.dart';
+import '../home_page.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:after_layout/after_layout.dart';
-import 'home_page.dart';
+import '../home_page.dart';
 import 'onboarding_screen.dart';
 
 class FirstTimeIntro extends StatefulWidget {

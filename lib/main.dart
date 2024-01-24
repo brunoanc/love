@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_database/firebase_database.dart';
 import 'firebase_options.dart';
-import 'first_time_intro.dart';
+import 'first_time_intro/first_time_intro.dart';
 //import 'dart:io';
 
 Future<void> main() async {
