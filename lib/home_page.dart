@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
                 height: 40,
                 repeat: false,
-                'assets/wired-outline-20-love-heart.json'
+                'assets/animations/wired-outline-20-love-heart.json'
               ),
             ),
             inActiveItem: OverflowBox(
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset(
                 width: 40,
                 height: 40,
-                'assets/wired-outline-20-love-heart.png'
+                'assets/icons/wired-outline-20-love-heart.png'
               ),
             ),
           ),
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
                 height: 40,
                 repeat: false,
-                'assets/wired-outline-1103-confetti.json'
+                'assets/animations/wired-outline-1103-confetti.json'
               ),
             ),
             inActiveItem: OverflowBox(
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset(
                 width: 40,
                 height: 40,
-                'assets/wired-outline-1103-confetti.png'
+                'assets/icons/wired-outline-1103-confetti.png'
               ),
             ),
           ),
@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
                 height: 40,
                 repeat: false,
-                'assets/wired-outline-188-microphone-recording.json'
+                'assets/animations/wired-outline-188-microphone-recording.json'
               ),
             ),
             inActiveItem: OverflowBox(
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset(
                 width: 40,
                 height: 40,
-                'assets/wired-outline-188-microphone-recording.png'
+                'assets/icons/wired-outline-188-microphone-recording.png'
               ),
             ),
           ),
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
                 height: 40,
                 repeat: false,
-                'assets/wired-outline-177-envelope-send.json'
+                'assets/animations/wired-outline-177-envelope-send.json'
               ),
             ),
             inActiveItem: OverflowBox(
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset(
                 width: 40,
                 height: 40,
-                'assets/wired-outline-177-envelope-send.png'
+                'assets/icons/wired-outline-177-envelope-send.png'
               ),
             ),
           ),
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                 width: 40,
                 height: 40,
                 repeat: false,
-                'assets/wired-outline-1330-rest-api.json'
+                'assets/animations/wired-outline-1330-rest-api.json'
               ),
             ),
             inActiveItem: OverflowBox(
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
               child: Image.asset(
                 width: 40,
                 height: 40,
-                'assets/wired-outline-1330-rest-api.png'
+                'assets/icons/wired-outline-1330-rest-api.png'
               ),
             ),
           ),

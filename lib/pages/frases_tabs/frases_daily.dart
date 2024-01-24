@@ -85,7 +85,7 @@ class _FrasesDailyState extends State<FrasesDaily> {
                                     Lottie.asset(
                                       width: 40,
                                       height: 40,
-                                      'assets/wired-outline-1865-shooting-stars.json'
+                                      'assets/animations/wired-outline-1865-shooting-stars.json'
                                     ),
                                     const SizedBox(width: 10),
                                     Text(
@@ -141,7 +141,7 @@ class _FrasesDailyState extends State<FrasesDaily> {
                                     Lottie.asset(
                                       width: 40,
                                       height: 40,
-                                      'assets/loading.json'
+                                      'assets/animations/loading.json'
                                     ),
                                     const SizedBox(width: 10),
                                     Text(
