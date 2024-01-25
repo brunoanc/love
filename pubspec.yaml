@@ -16,7 +16,9 @@ dependencies:
   firebase_messaging: ^14.7.10
   flutter:
     sdk: flutter
-  intl: ^0.19.0
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
   lottie: ^3.0.0
   shared_preferences: ^2.2.2
   smooth_page_indicator: ^1.1.0
