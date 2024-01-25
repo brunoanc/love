@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import '../../globals.dart' as globals;
 
 class FrasesPast extends StatelessWidget {
   const FrasesPast({super.key});
@@ -47,12 +49,10 @@ class FrasesPast extends StatelessWidget {
                         )),
 
                         child: DatePickerDialog(
-                          cancelText: 'Cancelar',
                           confirmText: 'OK',
-                          helpText: 'Selecciona una fecha',
-                          initialDate: DateTime.now().subtract(const Duration(days: 1)),
-                          firstDate:	DateTime(2023, 1, 20),
-                          lastDate: DateTime.now().subtract(const Duration(days: 1)),
+                          initialDate: DateTime(2024, 2, 8), /// CHANGE to smallest of DateTime.now() and DateTime(2025, 2, 8)
+                          firstDate:	DateTime(2024, 1, 8), /// CHANGE to DateTime(2024, 2, 8)
+                          lastDate: DateTime(2025, 2, 8), /// CHANGE to smallest of DateTime.now() and DateTime(2025, 2, 8)
                           initialEntryMode: DatePickerEntryMode.calendarOnly,
                         ),
                       );
@@ -71,7 +71,71 @@ class FrasesPast extends StatelessWidget {
                     transitionDuration: const Duration(milliseconds: 300),
                     barrierDismissible: true,
                     barrierLabel: '',
-                  );
+                  ).then((selectedDate) {
+                    if (selectedDate != null) {
+                      showGeneralDialog<String>(
+                        context: context,
+                        pageBuilder: (context, anim1, anim2) => Dialog.fullscreen(
+                          child: Scaffold(
+                            floatingActionButton:  CupertinoButton(
+                              padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
+                              borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
+                              color: theme.colorScheme.surface,
+                              onPressed: () => Navigator.pop(context),
+                              child: Text(
+                                'Regresar',
+                                style: theme.textTheme.bodyLarge,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                            body: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Tu mensajito del ${DateFormat("d 'de' MMMM").format(selectedDate)} fue:',
+                                    style: theme.textTheme.headlineMedium!.copyWith(
+                                      color: theme.colorScheme.onPrimary,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+
+                                  const SizedBox(height: 5),
+
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                    child: Text(
+                                      globals.frasesMap[DateFormat('yyyy-MM-dd').format(selectedDate)] ?? '',
+                                      style: theme.textTheme.titleLarge!.copyWith(
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            
+                          ),
+                        ),
+                        transitionBuilder: (context, anim1, anim2, child) {
+                          return FadeTransition(
+                            opacity: anim1.drive(
+                              Tween(
+                                begin: 0,
+                                end: 1,
+                              ),
+                            ),
+                            child: child,
+                          );
+                        },
+                        transitionDuration: const Duration(milliseconds: 300),
+                        barrierDismissible: true,
+                        barrierLabel: '',
+                      );
+                    }
+                  });
                 });
               },
               child: FittedBox(
