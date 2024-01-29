@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
+import 'especial_tabs/especial_day.dart';
 
-class Especial extends StatelessWidget {
+class Especial extends StatefulWidget {
   const Especial({super.key});
 
   @override
+  State<Especial> createState() => _EspecialState();
+}
+
+class _EspecialState extends State<Especial> with AutomaticKeepAliveClientMixin {
+  @override
+  bool wantKeepAlive = true;
+
+  @override
   Widget build(BuildContext context) {
-    //final ThemeData theme = Theme.of(context);
+    super.build(context);
+
+    final ThemeData theme = Theme.of(context);
 
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
-          flexibleSpace: const Column(
+          flexibleSpace: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TabBar(
+                indicatorColor: theme.colorScheme.onPrimary,
                 tabs: [
-                  Tab(icon: Icon(Icons.directions_car)),
-                  Tab(icon: Icon(Icons.directions_transit)),
-                  Tab(icon: Icon(Icons.directions_bike)),
+                  Tab(icon: Icon(Icons.celebration_outlined, color: theme.colorScheme.onPrimary)),
+                  Tab(icon: Icon(Icons.calendar_month, color: theme.colorScheme.onPrimary)),
                 ],
               ),
             ],
@@ -26,9 +37,8 @@ class Especial extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            Icon(Icons.directions_car),
+            EspecialDay(),
             Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
           ],
         ),
       ),

@@ -50,9 +50,9 @@ class FrasesPast extends StatelessWidget {
 
                         child: DatePickerDialog(
                           confirmText: 'OK',
-                          initialDate: DateTime(2024, 2, 8), /// CHANGE to smallest of DateTime.now() and DateTime(2025, 2, 8)
+                          initialDate: DateTime(2024, 2, 8), /// CHANGE to smallest of DateTime.now() and DateTime(2024, 8, 8)
                           firstDate:	DateTime(2024, 1, 8), /// CHANGE to DateTime(2024, 2, 8)
-                          lastDate: DateTime(2025, 2, 8), /// CHANGE to smallest of DateTime.now() and DateTime(2025, 2, 8)
+                          lastDate: DateTime(2025, 2, 8), /// CHANGE to smallest of DateTime.now() and DateTime(2024, 8, 8)
                           initialEntryMode: DatePickerEntryMode.calendarOnly,
                         ),
                       );
