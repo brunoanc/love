@@ -1,6 +1,10 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'dart:math';
+import '../../globals.dart' as globals;
+
+import 'package:timer_count_down/timer_count_down.dart';
 
 class EspecialDay extends StatefulWidget {
   const EspecialDay({super.key});
@@ -11,6 +15,8 @@ class EspecialDay extends StatefulWidget {
 
 class _EspecialDayState extends State<EspecialDay> {
   late ConfettiController _confettiController;
+  final date = DateFormat('yyyy-MM-dd').format(DateTime.now());
+  bool confetti = false;
 
   @override
   void initState() {
@@ -24,9 +30,37 @@ class _EspecialDayState extends State<EspecialDay> {
     super.dispose();
   }
 
+  static String formatDuration(Duration d) {
+    var seconds = d.inSeconds;
+    final days = seconds~/Duration.secondsPerDay;
+    seconds -= days*Duration.secondsPerDay;
+    final hours = seconds~/Duration.secondsPerHour;
+    seconds -= hours*Duration.secondsPerHour;
+    final minutes = seconds~/Duration.secondsPerMinute;
+    seconds -= minutes*Duration.secondsPerMinute;
+
+    final List<String> tokens = [];
+    if (days != 0) {
+      tokens.add('${days}d');
+    }
+    if (tokens.isNotEmpty || hours != 0){
+      tokens.add('${hours}h');
+    }
+    if (tokens.isNotEmpty || minutes != 0) {
+      tokens.add('${minutes}m');
+    }
+    tokens.add('${seconds}s');
+
+    return tokens.join(':');
+  }
+
   @override
   Widget build(BuildContext context) {
     //final ThemeData theme = Theme.of(context);
+
+    if (confetti) {
+      _confettiController.play();
+    }
 
     return Stack(
       children: [
@@ -47,7 +81,7 @@ class _EspecialDayState extends State<EspecialDay> {
           ),
         ),
 
-        Align(
+        /*Align(
           alignment: Alignment.center,
           child: TextButton(
             onPressed: () {
@@ -55,9 +89,27 @@ class _EspecialDayState extends State<EspecialDay> {
             },
             child: const Text('TEST', style: TextStyle(color: Colors.white)),
           ),
-        ),
+        ),*/
 
-        
+        Align(
+          alignment: Alignment.center,
+          child: globals.especialMap.containsKey(date)
+          ? Text(globals.especialMap[date]!)
+          : (
+            globals.especialMap.firstKeyAfter(date) == null
+            ? Container()
+            : Countdown(
+              seconds: DateTime.parse(globals.especialMap.firstKeyAfter(date)!).difference(DateTime.now()).inSeconds,
+              build: (BuildContext context, double time) => Text(formatDuration(Duration(seconds: time.floor()))),
+              interval: const Duration(seconds: 1),
+              onFinished: () {
+                setState(() {
+                  confetti = true;
+                });
+              },
+            )
+          ),
+        ),
       ],
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 const frasesMap = {
 '2024-02-08': '¡Espero que te haya gustado tu regalito corazón! Aprovecha para preguntarme lo que quieras sobre como funciona, te amo bebé :)',
 '2024-02-09': 'Hoy se cumplen 6 meses desde que empezó lo mejor que me ha pasado en la vida, el poder llamarte mi novia preciosa. También son 6 meses desde el anuncio de 1989 TV. ¿Quizá las mejores cosas nacen en días como este? Te adoro bebé, espero podamos pasar mucho más tiempo agarraditas de la manita y aprendiendo y creciendo juntas <3',
@@ -183,3 +185,11 @@ const frasesMap = {
 '2024-08-07': 'placeholder for 2024-08-07',
 '2024-08-08': 'placeholder for 2024-08-08',
 };
+
+final SplayTreeMap<String, String> especialMap = SplayTreeMap.from({
+  '2024-01-28': 'placeholder for 2024-01-28',
+  '2024-01-29': 'placeholder for 2024-01-29',
+  '2024-02-07': 'placeholder for 2024-02-07',
+  '2024-02-08': 'placeholder for 2024-02-08',
+  '2024-02-09': 'placeholder for 2024-02-09',
+});
