@@ -37,7 +37,7 @@ class MainApp extends StatelessWidget {
     Intl.defaultLocale = 'es_MX';
 
     return MaterialApp(
-      title: 'Love',
+      title: 'Mensajito Diario',
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

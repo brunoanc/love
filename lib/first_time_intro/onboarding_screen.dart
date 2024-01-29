@@ -66,23 +66,23 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ),
 
                 onLastPage
-                  ? GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                        return const HomePage();
-                      }));
-                    },
-                    child: const Icon(Icons.check, color: Colors.white),
-                  )
-                  : GestureDetector(
-                    onTap: () {
-                      _controller.nextPage(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn,
-                      );
-                    },
-                    child: const Icon(Icons.arrow_forward, color: Colors.white),
-                  ),
+                ? GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                      return const HomePage();
+                    }));
+                  },
+                  child: const Icon(Icons.check, color: Colors.white),
+                )
+                : GestureDetector(
+                  onTap: () {
+                    _controller.nextPage(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeIn,
+                    );
+                  },
+                  child: const Icon(Icons.arrow_forward, color: Colors.white),
+                ),
               ],
             ),
           ),
