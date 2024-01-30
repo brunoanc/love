@@ -105,9 +105,9 @@ class FrasesPast extends StatelessWidget {
                                         textAlign: TextAlign.center,
                                         maxLines: 1,
                                       ),
-                                  
+
                                       const SizedBox(height: 5),
-                                  
+
                                       AutoSizeText(
                                         globals.frasesMap[DateFormat('yyyy-MM-dd').format(selectedDate)] ?? '',
                                         style: theme.textTheme.titleLarge!.copyWith(
@@ -120,7 +120,6 @@ class FrasesPast extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            
                           ),
                         ),
                         transitionBuilder: (context, anim1, anim2, child) {
