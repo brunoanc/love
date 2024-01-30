@@ -97,7 +97,7 @@ class _EspecialDayState extends State<EspecialDay> {
           ? Text(globals.especialMap[date]!)
           : (
             globals.especialMap.firstKeyAfter(date) == null
-            ? Container()
+            ? const Text('Ya no hay mas mensajitos especiales, pero siempre recuerda que te quiero bebé <3')
             : Countdown(
               seconds: DateTime.parse(globals.especialMap.firstKeyAfter(date)!).difference(DateTime.now()).inSeconds,
               build: (BuildContext context, double time) => Text(formatDuration(Duration(seconds: time.floor()))),
