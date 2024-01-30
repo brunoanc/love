@@ -64,7 +64,19 @@ class _FrasesDailyState extends State<FrasesDaily> {
               future: SharedPreferences.getInstance(),
               builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
                 if (snapshot.hasData) {
-                  if (snapshot.data!.getString('last-uncovered') == date) { // CHANGE
+                  if (DateTime.now().compareTo(DateTime.parse(globals.frasesMap.lastKey()!).copyWith(hour: 23, minute: 59, second: 59)) > 0) {
+                    return Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                      child: Text(
+                        'Ya no hay mas mensajitos, pero siempre recuerda que te amo corazón <3',
+                        style: theme.textTheme.titleLarge!.copyWith(
+                          fontWeight: FontWeight.normal,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    );
+                  }
+                  else if (snapshot.data!.getString('last-uncovered') == date) { // CHANGE
                     return AnimatedSwitcher(
                       duration: const Duration(milliseconds: 200),
                       child: showFrase
