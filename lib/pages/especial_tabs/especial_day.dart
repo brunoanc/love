@@ -1,6 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:math';
 import '../../globals.dart' as globals;
 
@@ -15,8 +17,7 @@ class EspecialDay extends StatefulWidget {
 
 class _EspecialDayState extends State<EspecialDay> {
   late ConfettiController _confettiController;
-  final date = DateFormat('yyyy-MM-dd').format(DateTime.now());
-  bool confetti = false;
+  String date = DateFormat('yyyy-MM-dd').format(DateTime.now());
 
   @override
   void initState() {
@@ -51,16 +52,12 @@ class _EspecialDayState extends State<EspecialDay> {
     }
     tokens.add('${seconds}s');
 
-    return tokens.join(':');
+    return tokens.join(' ');
   }
 
   @override
   Widget build(BuildContext context) {
-    //final ThemeData theme = Theme.of(context);
-
-    if (confetti) {
-      _confettiController.play();
-    }
+    final ThemeData theme = Theme.of(context);
 
     return Stack(
       children: [
@@ -68,46 +65,74 @@ class _EspecialDayState extends State<EspecialDay> {
           alignment: Alignment.topCenter,
           child: ConfettiWidget(
             confettiController: _confettiController,
-            blastDirection: - pi / 2, // radial value - LEFT
+            blastDirection: -pi / 2,
             blastDirectionality: BlastDirectionality.explosive,
-            //particleDrag: 0.05, // apply drag to the confetti
-            emissionFrequency: 0.2, // how often it should emit
-            numberOfParticles: 20, // number of particles to emit
-            gravity: 0.1, // gravity - or fall speed
+            emissionFrequency: 0.2,
+            numberOfParticles: 20,
+            gravity: 0.1,
             shouldLoop: false,
             colors: const [
               Color.fromARGB(255, 154, 113, 231)
-            ], // manually specify the colors to be used
+            ],
           ),
         ),
 
-        /*Align(
-          alignment: Alignment.center,
-          child: TextButton(
-            onPressed: () {
-              _confettiController.play();
-            },
-            child: const Text('TEST', style: TextStyle(color: Colors.white)),
-          ),
-        ),*/
-
         Align(
           alignment: Alignment.center,
-          child: globals.especialMap.containsKey(date)
-          ? Text(globals.especialMap[date]!)
-          : (
-            globals.especialMap.firstKeyAfter(date) == null
-            ? const Text('Ya no hay mas mensajitos especiales, pero siempre recuerda que te quiero bebé <3')
-            : Countdown(
-              seconds: DateTime.parse(globals.especialMap.firstKeyAfter(date)!).difference(DateTime.now()).inSeconds,
-              build: (BuildContext context, double time) => Text(formatDuration(Duration(seconds: time.floor()))),
-              interval: const Duration(seconds: 1),
-              onFinished: () {
-                setState(() {
-                  confetti = true;
-                });
-              },
-            )
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 0, 20, 100),
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 500),
+              child: globals.especialMap.containsKey(DateFormat('yyyy-MM-dd').format(DateTime.now()))
+              ? FutureBuilder<SharedPreferences>(
+                future: SharedPreferences.getInstance(),
+                builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.getString('last-special-uncovered') == date) { // CHANGE
+                      _confettiController.play();
+                      snapshot.data!.setString('last-special-uncovered',  date);
+                    }
+
+                    return AutoSizeText(
+                      globals.especialMap[date] ?? '',
+                      style: theme.textTheme.titleLarge!.copyWith(
+                        fontWeight: FontWeight.normal,
+                      ),
+                      textAlign: TextAlign.justify,
+                    );
+                  }
+                  else {
+                    return Container();
+                  }
+                },
+              )
+              : (
+                globals.especialMap.firstKeyAfter(date) == null
+                ? Text(
+                  'Ya no hay mas mensajitos especiales, pero siempre recuerda que te quiero bebé <3',
+                  style: theme.textTheme.titleLarge!.copyWith(
+                    fontWeight: FontWeight.normal,
+                  ),
+                  textAlign: TextAlign.center,
+                )
+                : Countdown(
+                  seconds: DateTime.parse(globals.especialMap.firstKeyAfter(date)!).difference(DateTime.now()).inSeconds,
+                  build: (BuildContext context, double time) => AutoSizeText(
+                    formatDuration(Duration(seconds: time.floor())),
+                      style: theme.textTheme.displayLarge!.copyWith(
+                        color: theme.colorScheme.onPrimary,
+                      ),
+                      textAlign: TextAlign.center,
+                  ),
+                  interval: const Duration(seconds: 1),
+                  onFinished: () {
+                    setState(() {
+                      date = DateFormat('yyyy-MM-dd').format(DateTime.now());
+                    });
+                  },
+                )
+              ),
+            ),
           ),
         ),
       ],
