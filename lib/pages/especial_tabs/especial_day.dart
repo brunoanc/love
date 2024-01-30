@@ -119,10 +119,11 @@ class _EspecialDayState extends State<EspecialDay> {
                   seconds: DateTime.parse(globals.especialMap.firstKeyAfter(date)!).difference(DateTime.now()).inSeconds,
                   build: (BuildContext context, double time) => AutoSizeText(
                     formatDuration(Duration(seconds: time.floor())),
-                      style: theme.textTheme.displayLarge!.copyWith(
-                        color: theme.colorScheme.onPrimary,
-                      ),
-                      textAlign: TextAlign.center,
+                    style: theme.textTheme.displayLarge!.copyWith(
+                      color: theme.colorScheme.onPrimary,
+                    ),
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
                   ),
                   interval: const Duration(seconds: 1),
                   onFinished: () {

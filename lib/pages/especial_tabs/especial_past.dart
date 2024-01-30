@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../globals.dart' as globals;
 
-class FrasesPast extends StatelessWidget {
-  const FrasesPast({super.key});
+class EspecialPast extends StatelessWidget {
+  const EspecialPast({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class FrasesPast extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Ve mensajitos pasados:',
+              'Ve mensajitos especiales pasados:',
               style: theme.textTheme.headlineMedium!.copyWith(
                 color: theme.colorScheme.onPrimary,
               ),
@@ -51,10 +51,20 @@ class FrasesPast extends StatelessWidget {
 
                         child: DatePickerDialog(
                           confirmText: 'OK',
-                          initialDate: DateTime.now().isBefore(DateTime.parse(globals.frasesMap.lastKey()!)) ? DateTime.now() : DateTime.parse(globals.frasesMap.lastKey()!), /// CHANGE to smallest of DateTime.now() and DateTime.parse(globals.frasesMap.lastKey()!)
-                          firstDate:	DateTime.parse(globals.frasesMap.firstKey()!), /// CHANGE to DateTime.parse(globals.frasesMap.firstKey()!)
-                          lastDate: DateTime.now().isBefore(DateTime.parse(globals.frasesMap.lastKey()!)) ? DateTime.now() : DateTime.parse(globals.frasesMap.lastKey()!), /// CHANGE to smallest of DateTime.now() and DateTime.parse(globals.frasesMap.lastKey()!)
+                          initialDate: DateTime.parse(
+                            globals.especialMap.lastKeyBefore(DateFormat('yyyy-MM-dd').format(DateTime.now()))
+                            ?? globals.especialMap.firstKey()!
+                          ),
+                          firstDate:	DateTime.parse(globals.especialMap.firstKey()!),
+                          lastDate: DateTime.parse(
+                            globals.especialMap.lastKeyBefore(DateFormat('yyyy-MM-dd').format(DateTime.now()))
+                            ?? globals.especialMap.firstKey()!
+                          ),
                           initialEntryMode: DatePickerEntryMode.calendarOnly,
+                          selectableDayPredicate: (date) {
+                            final dateString = DateFormat('yyyy-MM-dd').format(date);
+                            return globals.especialMap.containsKey(dateString);
+                          },
                         ),
                       );
                     },
@@ -92,35 +102,18 @@ class FrasesPast extends StatelessWidget {
                             floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
                             body: SafeArea(
                               child: Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      AutoSizeText(
-                                        'Tu mensajito del ${DateFormat("d 'de' MMMM").format(selectedDate)} fue:',
-                                        style: theme.textTheme.headlineMedium!.copyWith(
-                                          color: theme.colorScheme.onPrimary,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                        maxLines: 1,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 90),
+                                    child: AutoSizeText(
+                                      globals.especialMap[DateFormat('yyyy-MM-dd').format(selectedDate)] ?? '',
+                                      style: theme.textTheme.titleLarge!.copyWith(
+                                        fontWeight: FontWeight.normal,
                                       ),
-                                  
-                                      const SizedBox(height: 5),
-                                  
-                                      AutoSizeText(
-                                        globals.frasesMap[DateFormat('yyyy-MM-dd').format(selectedDate)] ?? '',
-                                        style: theme.textTheme.titleLarge!.copyWith(
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ],
+                                      textAlign: TextAlign.justify,
+                                    ),
                                   ),
-                                ),
                               ),
                             ),
-                            
                           ),
                         ),
                         transitionBuilder: (context, anim1, anim2, child) {
