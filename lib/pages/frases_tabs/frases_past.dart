@@ -51,9 +51,9 @@ class FrasesPast extends StatelessWidget {
 
                         child: DatePickerDialog(
                           confirmText: 'OK',
-                          initialDate: DateTime.now().isBefore(DateTime.parse(globals.frasesMap.lastKey()!)) ? DateTime.now() : DateTime.parse(globals.frasesMap.lastKey()!), /// CHANGE to smallest of DateTime.now() and DateTime.parse(globals.frasesMap.lastKey()!)
-                          firstDate:	DateTime.parse(globals.frasesMap.firstKey()!), /// CHANGE to DateTime.parse(globals.frasesMap.firstKey()!)
-                          lastDate: DateTime.now().isBefore(DateTime.parse(globals.frasesMap.lastKey()!)) ? DateTime.now() : DateTime.parse(globals.frasesMap.lastKey()!), /// CHANGE to smallest of DateTime.now() and DateTime.parse(globals.frasesMap.lastKey()!)
+                          initialDate: DateTime.now().isBefore(DateTime.parse(globals.frasesMap.lastKey()!)) ? DateTime.now() : DateTime.parse(globals.frasesMap.lastKey()!),
+                          firstDate:	DateTime.parse(globals.frasesMap.firstKey()!),
+                          lastDate: DateTime.now().isBefore(DateTime.parse(globals.frasesMap.lastKey()!)) ? DateTime.now() : DateTime.parse(globals.frasesMap.lastKey()!),
                           initialEntryMode: DatePickerEntryMode.calendarOnly,
                         ),
                       );
