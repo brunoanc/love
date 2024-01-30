@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:love/pages/especial_tabs/especial_past.dart';
 import 'especial_tabs/especial_day.dart';
 
 class Especial extends StatefulWidget {
@@ -38,7 +39,7 @@ class _EspecialState extends State<Especial> with AutomaticKeepAliveClientMixin 
         body: const TabBarView(
           children: [
             EspecialDay(),
-            Icon(Icons.directions_transit),
+            EspecialPast(),
           ],
         ),
       ),
