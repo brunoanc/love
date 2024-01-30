@@ -32,7 +32,7 @@ class _FrasesDailyState extends State<FrasesDaily> {
     final frase = Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
       child: AutoSizeText(
-        globals.frasesMap["2024-03-08"] ?? '', // CHANGE TO date
+        globals.frasesMap['2024-03-08'] ?? '', // CHANGE TO date
         style: theme.textTheme.titleLarge!.copyWith(
           fontWeight: FontWeight.normal,
         ),
