@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:intl/intl.dart';
+import 'package:just_audio_background/just_audio_background.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_database/firebase_database.dart';
 import 'firebase_options.dart';
@@ -25,6 +26,13 @@ Future<void> main() async {
   );
   DatabaseReference ref = database.ref('users/${userCredential.user!.uid}/mensaje');
   await ref.set('te quierooooo <3');*/
+
+  await JustAudioBackground.init(
+    androidNotificationChannelId: 'com.powerball253.love.audio',
+    androidNotificationChannelName: 'Audio playback',
+    androidNotificationOngoing: true,
+    // androidNotificationIcon CHANGE
+  );
 
   runApp(const MainApp());
 }
