@@ -88,11 +88,15 @@ final frasesMap = SplayTreeMap<String, String>.from({
 '2024-04-29': 'placeholder for 2024-04-29',
 '2024-04-30': 'placeholder for 2024-04-30',
 '2024-05-01': 'placeholder for 2024-05-01',
+
+
 '2024-05-02': 'placeholder for 2024-05-02',
 '2024-05-03': 'placeholder for 2024-05-03',
 '2024-05-04': 'placeholder for 2024-05-04',
 '2024-05-05': 'placeholder for 2024-05-05',
 '2024-05-06': 'placeholder for 2024-05-06',
+
+
 '2024-05-07': 'placeholder for 2024-05-07',
 '2024-05-08': 'placeholder for 2024-05-08',
 '2024-05-09': 'placeholder for 2024-05-09',
@@ -190,14 +194,23 @@ final frasesMap = SplayTreeMap<String, String>.from({
 });
 
 final especialMap = SplayTreeMap<String, String>.from({
-  //'2024-01-28': 'placeholder for 2024-01-28',
-  //'2024-01-29': 'placeholder for 2024-01-29',
-  //'2024-02-07': 'placeholder for 2024-02-07',
-  //'2024-02-08': 'placeholder for 2024-02-08',
-  //'2024-02-09': 'placeholder for 2024-02-09',
-  '2024-02-08': 'Mi niña preciosa\n\nOtra cosa que amo de tí son los detallitos que me das de vez en cuando. Amo tus notitas, tus cartitas, tus regalitos, incluso cuando solo me haces un dibujito de una hormiguita, amo cada uno de ellos porque siento que pones una partecita de tí en cada uno y todo el amor posible. Guardo todas esas cositas y me encanta verlas o releerlas de vez en cuando, me salen lagrimitas siempre y me hacen muy muy feliz y me llenan de amorcito. Siempre las voy a cuidar como a tu corazoncito precioso. Gracias por ser tan detallista conmigo corazón, te amo mucho <3.\n\nMe dió penita pero andaba pensando en tu carita y en darle besitos y se me ocurrió que quiero decirte que amo tu naricita, está super bonita y amo darle besitos normales y de esquimal. También me fascinan tus cachetitos, se te ven preciosos y adorables y me gusta apretártelos suavecito y ver como reaccionas. Adoro todas las cositas de tu cara, estás super preciosa y te lo seguiré recordando una y otra vez para que nunca se te olvide. Te adoro mi niña bonita <3\n\nMañana regresamos a clases así que solo quería decirte que vamos a terminar lo que queda del semestre con todo mi niña, vamos a lograr que nos vaya bien y estemos bien y que te voy a apoyar en todo lo que queda. Te adoro bebé, sé que se vienen cositas díficiles pero también muchísimas cositas increíbles y vamos a estar juntitas para apoyarnos en todo <3',
-  '2024-01-31': 'Mi niña preciosa 2\n\nOtra cosa que amo de tí son los detallitos que me das de vez en cuando. Amo tus notitas, tus cartitas, tus regalitos, incluso cuando solo me haces un dibujito de una hormiguita, amo cada uno de ellos porque siento que pones una partecita de tí en cada uno y todo el amor posible. Guardo todas esas cositas y me encanta verlas o releerlas de vez en cuando, me salen lagrimitas siempre y me hacen muy muy feliz y me llenan de amorcito. Siempre las voy a cuidar como a tu corazoncito precioso. Gracias por ser tan detallista conmigo corazón, te amo mucho <3.\n\nMe dió penita pero andaba pensando en tu carita y en darle besitos y se me ocurrió que quiero decirte que amo tu naricita, está super bonita y amo darle besitos normales y de esquimal. También me fascinan tus cachetitos, se te ven preciosos y adorables y me gusta apretártelos suavecito y ver como reaccionas. Adoro todas las cositas de tu cara, estás super preciosa y te lo seguiré recordando una y otra vez para que nunca se te olvide. Te adoro mi niña bonita <3\n\nMañana regresamos a clases así que solo quería decirte que vamos a terminar lo que queda del semestre con todo mi niña, vamos a lograr que nos vaya bien y estemos bien y que te voy a apoyar en todo lo que queda. Te adoro bebé, sé que se vienen cositas díficiles pero también muchísimas cositas increíbles y vamos a estar juntitas para apoyarnos en todo <3',
-  '2024-02-14': 'placeholder for 14-02',
-  '2024-02-15': 'placeholder for 15-02',
-  '2024-03-08': 'placeholder for 08-03',
+  '2024-02-11': '',
+  '2024-02-14': '',
+  '2024-02-15': '',
+  '2024-02-22': 'LE MANDE MENSAJE POR LA INVESTIGACION',
+  '2024-03-08': '',
+  '2024-03-15': '',
+  '2024-03-17': 'NOS SENTARON JUNTAS',
+  '2024-04-08': '',
+  '2024-04-15': '',
+  '2024-04-28': 'CLAUSURA SM? podria poner todo lo que quise decirle...',
+  '2024-05-08': '',
+  '2024-05-15': '',
+  '2024-05-22': 'PRESENTACION CON MAESTROS Y EQUIPO JUNTAS',
+  '2024-05-25': 'PRIMERA LLAMADITA Y DESPUES EMPEZAMOS A PLATICAR',
+  '2024-06-08': '',
+  '2024-06-15': '',
+  '2024-07-08': '',
+  '2024-07-15': '',
+  '2024-08-08': '',
 });
