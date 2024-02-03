@@ -76,7 +76,7 @@ class _FrasesDailyState extends State<FrasesDaily> {
                       ),
                     );
                   }
-                  else if (snapshot.data!.getString('last-uncovered') == date) { // CHANGE
+                  else if (snapshot.data!.getString('last-uncovered') != date) {
                     return AnimatedSwitcher(
                       duration: const Duration(milliseconds: 200),
                       child: showFrase
