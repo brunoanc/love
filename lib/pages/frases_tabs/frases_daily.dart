@@ -13,11 +13,14 @@ class FrasesDaily extends StatefulWidget {
   State<FrasesDaily> createState() => _FrasesDailyState();
 }
 
-class _FrasesDailyState extends State<FrasesDaily> {
+class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClientMixin {
   bool revealButtonStatus = true;
   String loadingButtonText = 'Revelar';
   final date = DateFormat('yyyy-MM-dd').format(DateTime.now());
   bool showFrase = false;
+
+  @override
+  bool wantKeepAlive = true;
 
   @override
   void setState(VoidCallback fn) {
@@ -28,6 +31,8 @@ class _FrasesDailyState extends State<FrasesDaily> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     final ThemeData theme = Theme.of(context);
     final frase = Padding(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),

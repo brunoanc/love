@@ -15,9 +15,12 @@ class EspecialDay extends StatefulWidget {
   State<EspecialDay> createState() => _EspecialDayState();
 }
 
-class _EspecialDayState extends State<EspecialDay> {
+class _EspecialDayState extends State<EspecialDay> with AutomaticKeepAliveClientMixin {
   late ConfettiController _confettiController;
   String date = DateFormat('yyyy-MM-dd').format(DateTime.now());
+
+  @override
+  bool wantKeepAlive = true;
 
   @override
   void initState() {
@@ -33,12 +36,12 @@ class _EspecialDayState extends State<EspecialDay> {
 
   static String formatDuration(Duration d) {
     var seconds = d.inSeconds;
-    final days = seconds~/Duration.secondsPerDay;
-    seconds -= days*Duration.secondsPerDay;
-    final hours = seconds~/Duration.secondsPerHour;
-    seconds -= hours*Duration.secondsPerHour;
-    final minutes = seconds~/Duration.secondsPerMinute;
-    seconds -= minutes*Duration.secondsPerMinute;
+    final days = seconds ~/ Duration.secondsPerDay;
+    seconds -= days * Duration.secondsPerDay;
+    final hours = seconds ~/ Duration.secondsPerHour;
+    seconds -= hours * Duration.secondsPerHour;
+    final minutes = seconds ~/ Duration.secondsPerMinute;
+    seconds -= minutes * Duration.secondsPerMinute;
 
     final List<String> tokens = [];
     if (days != 0) {
@@ -57,6 +60,8 @@ class _EspecialDayState extends State<EspecialDay> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
     final ThemeData theme = Theme.of(context);
 
     return Stack(

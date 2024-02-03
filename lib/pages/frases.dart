@@ -9,14 +9,9 @@ class Frases extends StatefulWidget {
   State<Frases> createState() => _FrasesState();
 }
 
-class _FrasesState extends State<Frases> with AutomaticKeepAliveClientMixin {
-  @override
-  bool wantKeepAlive = true;
-
+class _FrasesState extends State<Frases> {
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-
     final ThemeData theme = Theme.of(context);
 
     return DefaultTabController(
