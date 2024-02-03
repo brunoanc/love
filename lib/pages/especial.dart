@@ -9,14 +9,9 @@ class Especial extends StatefulWidget {
   State<Especial> createState() => _EspecialState();
 }
 
-class _EspecialState extends State<Especial> with AutomaticKeepAliveClientMixin {
-  @override
-  bool wantKeepAlive = true;
-
+class _EspecialState extends State<Especial> {
   @override
   Widget build(BuildContext context) {
-    super.build(context);
-
     final ThemeData theme = Theme.of(context);
 
     return DefaultTabController(
