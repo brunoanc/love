@@ -3,11 +3,13 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'pages/frases.dart';
 import 'pages/especial.dart';
 import 'pages/audios.dart';
 import 'pages/mensajes.dart';
 import 'pages/configuracion.dart';
+import 'globals.dart' as globals;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,6 +28,37 @@ class _HomePageState extends State<HomePage> {
     Mensajes(),
     Configuracion(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (DateTime.now().isAfter(DateTime.parse(globals.frasesMap.lastKey()!).copyWith(hour: 23, minute: 59, second: 59))) {
+      SharedPreferences.getInstance().then((value) {
+        if (value.getBool('over') == null) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: const Text('¡Gracias por todo corazón! ❤️', style: TextStyle(color: Color(0xff3f008d))),
+              content: const Text(
+                'Ya no hay mensajitos nuevos en la app, pero espero que te hayan gustado muchísimo estos 6 meses de cositas bonitas. Recuerda que siempre que necesites reassurance, oír algo bonito de tí, o que te de un dato curioso pendejo del día, yo con gusto lo haré. Te adoro muchísimo bebé <3',
+                textAlign: TextAlign.justify,
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    value.setBool('over', true);
+                    Navigator.pop(context);
+                  },
+                  child: const Text('OK', style: TextStyle(color: Color(0xff3f008d))),
+                ),
+              ],
+            ),
+          );
+        }
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

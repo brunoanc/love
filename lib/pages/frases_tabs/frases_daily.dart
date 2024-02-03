@@ -69,7 +69,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
               future: SharedPreferences.getInstance(),
               builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
                 if (snapshot.hasData) {
-                  if (DateTime.now().compareTo(DateTime.parse(globals.frasesMap.lastKey()!).copyWith(hour: 23, minute: 59, second: 59)) > 0) {
+                  if (DateTime.now().isAfter(DateTime.parse(globals.frasesMap.lastKey()!).copyWith(hour: 23, minute: 59, second: 59))) {
                     return Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                       child: Text(
