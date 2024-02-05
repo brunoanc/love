@@ -133,7 +133,7 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
-                                  title: const Text('¡Mensaje enviado con éxito! <3', style: TextStyle(color: Color(0xff3f008d))),
+                                  title: Text('¡Mensaje enviado con éxito! <3', style: TextStyle(color: theme.colorScheme.onBackground)),
                                   content: const Text(
                                     'Tu mensaje debería llegarle a Bruno dentro de poco tiempo :)',
                                     textAlign: TextAlign.justify,
@@ -143,7 +143,7 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: const Text('OK', style: TextStyle(color: Color(0xff3f008d))),
+                                      child: Text('OK', style: TextStyle(color: theme.colorScheme.onBackground)),
                                     ),
                                   ],
                                   contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
