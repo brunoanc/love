@@ -26,6 +26,7 @@ dependencies:
   lazy_load_indexed_stack: ^1.1.0
   lottie: ^3.0.0
   rxdart: ^0.27.7
+  settings_ui: ^2.0.2
   shared_preferences: ^2.2.2
   smooth_page_indicator: ^1.1.0
   timer_count_down: ^2.2.2
