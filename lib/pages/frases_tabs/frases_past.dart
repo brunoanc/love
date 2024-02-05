@@ -43,7 +43,7 @@ class FrasesPast extends StatelessWidget {
                             onSurfaceVariant: Colors.white,
                           ),
                         ).copyWith(datePickerTheme: DatePickerThemeData(
-                          shadowColor: const Color(0xff3f008d),
+                          shadowColor: theme.colorScheme.onBackground,
                           dividerColor: Colors.deepPurple.shade300,
                           weekdayStyle: TextStyle(fontWeight: FontWeight.w900, color: Colors.deepPurple.shade500),
                           headerForegroundColor: Colors.deepPurple.shade500
@@ -145,10 +145,10 @@ class FrasesPast extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      width: 25,
-                      height: 25,
-                      'assets/icons/calendar.png'
+                    const Icon(
+                      Icons.calendar_today_outlined,
+                      size: 25,
+                      color: Colors.white,
                     ),
                     const SizedBox(width: 10),
                     Text(
