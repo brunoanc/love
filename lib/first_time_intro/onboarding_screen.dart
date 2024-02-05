@@ -6,7 +6,9 @@ import 'intro_pages/intro_page_3.dart';
 import '../home_page.dart';
 
 class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({super.key});
+  const OnBoardingScreen({super.key, required this.firstTime});
+
+  final bool firstTime;
 
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
@@ -68,9 +70,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 onLastPage
                 ? GestureDetector(
                   onTap: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                      return const HomePage();
-                    }));
+                    if (widget.firstTime) {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                        return const HomePage();
+                      }));
+                    }
+                    else {
+                      Navigator.pop(context);
+                    }
                   },
                   child: const Icon(Icons.check, color: Colors.white),
                 )

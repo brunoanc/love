@@ -16,7 +16,7 @@ class _FirstTimeIntroState extends State<FirstTimeIntro> with AfterLayoutMixin<F
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool seen = (prefs.getBool('seen') ?? false);
 
-    if (!seen) { /// CHANGE
+    if (seen) {
       if (!context.mounted) return;
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const HomePage()));
@@ -24,7 +24,7 @@ class _FirstTimeIntroState extends State<FirstTimeIntro> with AfterLayoutMixin<F
       await prefs.setBool('seen', true);
       if (!context.mounted) return;
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const OnBoardingScreen()));
+          MaterialPageRoute(builder: (context) => const OnBoardingScreen(firstTime: true)));
     }
   }
 
