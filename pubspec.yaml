@@ -42,6 +42,9 @@ flutter:
     - family: Bruno
       fonts:
         - asset: assets/fonts/Bruno-Regular.ttf
+    - family: Folklore
+      fonts:
+        - asset: assets/fonts/IMFellDWPica-Italic.ttf
   assets:
     - assets/animations/
     - assets/icons/
