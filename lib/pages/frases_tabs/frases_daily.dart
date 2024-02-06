@@ -40,6 +40,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
         globals.frasesMap['2024-03-08'] ?? '', // CHANGE TO date
         style: theme.textTheme.titleLarge!.copyWith(
           fontWeight: FontWeight.normal,
+          fontFamily: 'Bruno',
         ),
         textAlign: TextAlign.center,
       ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -113,14 +114,84 @@ class Configuracion extends StatelessWidget {
                       });
                     },
                   ),
+
                   SettingsTile.navigation(
                     leading: const Icon(Icons.info_outline),
                     title: const Text('Sobre nosotras'),
                     description: const Text('Hoy y siempre'),
-                    onPressed: (context) {},
+                    onPressed: (context) {
+                      showGeneralDialog<String>(
+                        context: context,
+                        pageBuilder: (context, anim1, anim2) => Dialog.fullscreen(
+                          child: Scaffold(
+                            backgroundColor: Colors.yellow.shade100,
+                            floatingActionButton:  CupertinoButton(
+                              padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
+                              borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
+                              color: Colors.yellow,
+                              onPressed: () => Navigator.pop(context),
+                              child: Text(
+                                'Regresar',
+                                style: theme.textTheme.bodyLarge,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+                            body: SafeArea(
+                              child: Center(
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(24),
+                                        child: Image.asset(
+                                          'assets/images/nosotras.jpg',
+                                          fit: BoxFit.fill,
+                                          //width: imageDimension,
+                                          //height: imageDimension,
+                                        ),
+                                      ),
+
+                                      const SizedBox(height: 10),
+
+                                      Text(
+                                        'hoy y siempre',
+                                        style: theme.textTheme.headlineMedium!.copyWith(
+                                          color: Colors.black,
+                                          fontFamily: 'Fearless'
+                                        ),
+                                        textAlign: TextAlign.center,
+                                        maxLines: 1,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        transitionBuilder: (context, anim1, anim2, child) {
+                          return FadeTransition(
+                            opacity: anim1.drive(
+                              Tween(
+                                begin: 0,
+                                end: 1,
+                              ),
+                            ),
+                            child: child,
+                          );
+                        },
+                        transitionDuration: const Duration(milliseconds: 300),
+                        barrierDismissible: true,
+                        barrierLabel: '',
+                      );
+                    },
                   ),
                 ],
               ),
+
               SettingsSection(
                 title: const Text('App'),
                 tiles: <SettingsTile>[
@@ -132,6 +203,7 @@ class Configuracion extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(builder: (context) => const OnBoardingScreen(firstTime: false)));
                     },
                   ),
+
                   SettingsTile.navigation(
                     leading: const Icon(Icons.lock_reset_outlined),
                     title: const Text('Reestablecer app', style: TextStyle(color: Colors.red)),
