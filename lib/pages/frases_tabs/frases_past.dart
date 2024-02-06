@@ -112,6 +112,7 @@ class FrasesPast extends StatelessWidget {
                                         globals.frasesMap[DateFormat('yyyy-MM-dd').format(selectedDate)] ?? '',
                                         style: theme.textTheme.titleLarge!.copyWith(
                                           fontWeight: FontWeight.normal,
+                                          fontFamily: 'Bruno',
                                         ),
                                         textAlign: TextAlign.center,
                                       ),

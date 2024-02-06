@@ -38,6 +38,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Bruno
+      fonts:
+        - asset: assets/fonts/Bruno-Regular.ttf
   assets:
     - assets/animations/
     - assets/icons/

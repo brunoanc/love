@@ -30,7 +30,7 @@ class EspecialPast extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(35, 20, 35, 20),
               borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
               color: theme.colorScheme.surface,
-              onPressed: () {
+              onPressed: (globals.especialMap.lastKeyBefore(DateFormat('yyyy-MM-dd').format(DateTime.now())) == null) ? null : () {
                 Future.delayed(const Duration(milliseconds: 20), () {
                   showGeneralDialog<DateTime>(
                     context: context,
@@ -52,13 +52,11 @@ class EspecialPast extends StatelessWidget {
                         child: DatePickerDialog(
                           confirmText: 'OK',
                           initialDate: DateTime.parse(
-                            globals.especialMap.lastKeyBefore(DateFormat('yyyy-MM-dd').format(DateTime.now()))
-                            ?? globals.especialMap.firstKey()!
+                            globals.especialMap.lastKeyBefore(DateFormat('yyyy-MM-dd').format(DateTime.now()))!
                           ),
                           firstDate:	DateTime.parse(globals.especialMap.firstKey()!),
                           lastDate: DateTime.parse(
-                            globals.especialMap.lastKeyBefore(DateFormat('yyyy-MM-dd').format(DateTime.now()))
-                            ?? globals.especialMap.firstKey()!
+                            globals.especialMap.lastKeyBefore(DateFormat('yyyy-MM-dd').format(DateTime.now()))!
                           ),
                           initialEntryMode: DatePickerEntryMode.calendarOnly,
                           selectableDayPredicate: (date) {
@@ -108,6 +106,7 @@ class EspecialPast extends StatelessWidget {
                                       globals.especialMap[DateFormat('yyyy-MM-dd').format(selectedDate)] ?? '',
                                       style: theme.textTheme.titleLarge!.copyWith(
                                         fontWeight: FontWeight.normal,
+                                        fontFamily: 'Bruno',
                                       ),
                                       textAlign: TextAlign.justify,
                                     ),

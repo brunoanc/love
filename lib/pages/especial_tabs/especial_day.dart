@@ -102,6 +102,7 @@ class _EspecialDayState extends State<EspecialDay> with AutomaticKeepAliveClient
                       globals.especialMap[date] ?? '',
                       style: theme.textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.normal,
+                        fontFamily: 'Bruno',
                       ),
                       textAlign: TextAlign.justify,
                     );
