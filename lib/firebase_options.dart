@@ -54,6 +54,7 @@ class DefaultFirebaseOptions {
     appId: '1:675840799624:android:f2288e867d1b203ee6803d',
     messagingSenderId: '675840799624',
     projectId: 'love-dbe0b',
+    databaseURL: 'https://love-dbe0b-default-rtdb.firebaseio.com',
     storageBucket: 'love-dbe0b.appspot.com',
   );
 
@@ -62,6 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:675840799624:ios:e42448b55e57a1c5e6803d',
     messagingSenderId: '675840799624',
     projectId: 'love-dbe0b',
+    databaseURL: 'https://love-dbe0b-default-rtdb.firebaseio.com',
     storageBucket: 'love-dbe0b.appspot.com',
     iosBundleId: 'com.powerball253.love',
   );

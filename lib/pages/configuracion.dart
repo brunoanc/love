@@ -241,7 +241,7 @@ class Configuracion extends StatelessWidget {
                                   floatingLabelStyle: TextStyle(color: theme.colorScheme.onBackground),
                                   alignLabelWithHint: true,
                                 ),
-                                keyboardType: TextInputType.multiline,
+                                keyboardType: TextInputType.visiblePassword,
                                 onChanged: (value) => setState(() {
                                   password = value;
                                 }),
