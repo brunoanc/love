@@ -93,7 +93,7 @@ class _EspecialDayState extends State<EspecialDay> with AutomaticKeepAliveClient
                 future: SharedPreferences.getInstance(),
                 builder: (BuildContext context, AsyncSnapshot<SharedPreferences> snapshot) {
                   if (snapshot.hasData) {
-                    if (snapshot.data!.getString('last-special-uncovered') == date) { // CHANGE
+                    if (snapshot.data!.getString('last-special-uncovered') != date) {
                       _confettiController.play();
                       snapshot.data!.setString('last-special-uncovered',  date);
                     }
