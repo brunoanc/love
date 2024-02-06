@@ -5,39 +5,39 @@ import 'package:rxdart/rxdart.dart';
 
 final _playlist = ConcatenatingAudioSource(children: [
   AudioSource.uri(
-    Uri.parse("asset:///assets/audio/scifri20181123-episode.mp3"),
+    Uri.parse('asset:///assets/audio/scifri20181123-episode.mp3'),
     tag: MediaItem(
       id: '1',
-      album: "Science Friday",
-      title: "A Salute To Head-Scratching Science",
-      artUri: Uri.parse("https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg"),
+      album: 'Science Friday',
+      title: 'A Salute To Head-Scratching Science',
+      artUri: Uri.parse('https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg'),
     ),
   ),
   AudioSource.uri(
-    Uri.parse("asset:///assets/audio/scifri201711241.mp3"),
+    Uri.parse('asset:///assets/audio/scifri201711241.mp3'),
     tag: MediaItem(
       id: '2',
-      album: "Science Friday",
-      title: "From Cat Rheology To Operatic Incompetence",
-      artUri: Uri.parse("https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg"),
+      album: 'Science Friday',
+      title: 'From Cat Rheology To Operatic Incompetence',
+      artUri: Uri.parse('https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg'),
     ),
   ),
   AudioSource.uri(
-    Uri.parse("asset:///assets/audio/nature.mp3"),
+    Uri.parse('asset:///assets/audio/nature.mp3'),
     tag: MediaItem(
       id: '3',
-      album: "Public Domain",
-      title: "Nature Sounds",
-      artUri: Uri.parse("https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg"),
+      album: 'Public Domain',
+      title: 'Nature Sounds',
+      artUri: Uri.parse('https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg'),
     ),
   ),
   AudioSource.uri(
-    Uri.parse("asset:///assets/audio/nature.mp3"),
+    Uri.parse('asset:///assets/audio/nature.mp3'),
     tag: MediaItem(
       id: '4',
-      album: "Public Domain",
-      title: "Nature Sounds 2",
-      artUri: Uri.parse("https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg"),
+      album: 'Public Domain',
+      title: 'Nature Sounds 2',
+      artUri: Uri.parse('https://media.wnyc.org/i/1400/1400/l/80/1/ScienceFriday_WNYCStudios_1400.jpg'),
     ),
   ),
 ]);
