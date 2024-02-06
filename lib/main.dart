@@ -3,12 +3,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:intl/intl.dart';
 import 'package:just_audio_background/just_audio_background.dart';
-//import 'package:firebase_auth/firebase_auth.dart';
-//import 'package:firebase_database/firebase_database.dart';
 import 'firebase_options.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'first_time_intro/first_time_intro.dart';
-//import 'dart:io';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,16 +13,6 @@ Future<void> main() async {
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
     .then((value) => FirebaseMessaging.instance.requestPermission(provisional: true))
     .then((value) => FirebaseMessaging.instance.subscribeToTopic('xime'));
-
-  // REMEMBER THERE MIGHT NOT BE WIFI
-  /*final userCredential = await FirebaseAuth.instance.signInAnonymously();
-  String host = Platform.isAndroid ? 'http://10.0.2.2:9000/?ns=love-dbe0b' : 'http://localhost:9000/?ns=love-dbe0b';
-  FirebaseDatabase database = FirebaseDatabase.instanceFor(
-    app: app,
-    databaseURL: host,
-  );
-  DatabaseReference ref = database.ref('users/${userCredential.user!.uid}/mensaje');
-  await ref.set('te quierooooo <3');*/
 
   await JustAudioBackground.init(
     androidNotificationChannelId: 'com.powerball253.love.audio',

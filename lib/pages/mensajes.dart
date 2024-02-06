@@ -1,4 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -84,6 +86,8 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                                 return StatefulBuilder(
                                   builder: (context, setState) => AlertDialog(
                                     content: TextField(
+                                      autocorrect: false,
+                                      enableSuggestions: false,
                                       minLines: 4,
                                       maxLines: null,
                                       cursorColor: theme.colorScheme.onBackground.withAlpha(0x7f),
@@ -124,32 +128,40 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                                 return;
                               }
 
-                              print(value); // CHANGE to db write
-                              snapshot.data!.setString('last-message', date);
-                              setState(() {
-                                date = date;
-                              });
+                              FirebaseAuth.instance.signInAnonymously()
+                              .then((userCredential){
+                                FirebaseDatabase database = FirebaseDatabase.instance;
+                                return database.ref('users/${userCredential.user!.uid}/mensaje');
+                              })
+                              .then((ref) {
+                                ref.set(value);
 
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) => AlertDialog(
-                                  title: Text('¡Mensaje enviado con éxito! <3', style: TextStyle(color: theme.colorScheme.onBackground)),
-                                  content: const Text(
-                                    'Tu mensaje debería llegarle a Bruno dentro de poco tiempo :)',
-                                    textAlign: TextAlign.justify,
-                                  ),
-                                  actions: <Widget>[
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text('OK', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                snapshot.data!.setString('last-message', date);
+                                setState(() {
+                                  date = date;
+                                });
+
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) => AlertDialog(
+                                    title: Text('¡Mensaje enviado con éxito! <3', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                    content: const Text(
+                                      'Tu mensaje debería llegarle a Bruno dentro de poco tiempo :)',
+                                      textAlign: TextAlign.justify,
                                     ),
-                                  ],
-                                  contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
-                                  actionsPadding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
-                                ),
-                              );
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text('OK', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                      ),
+                                    ],
+                                    contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
+                                    actionsPadding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                                  ),
+                                );
+                              });
                             });
                           });
                         },
