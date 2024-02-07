@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'intro_pages/intro_page_1.dart';
-import 'intro_pages/intro_page_2.dart';
-import 'intro_pages/intro_page_3.dart';
+import 'intro_page.dart';
 import '../home_page.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -30,13 +28,45 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             onPageChanged: (index) {
               setState(() {
                 onFirstPage = (index == 0);
-                onLastPage = (index == 2);
+                onLastPage = (index == 6);
               });
             },
             children: const [
-              IntroPage1(),
-              IntroPage2(),
-              IntroPage3(),
+              IntroPage(
+                title: '¡Bienvenida a tu app!',
+                description: 'Ya lo imaginabas, ¿no? Acompáñame a descubrir la mejor app del mundo, solo para mi princesa <3',
+                image: 'levels-app-development-with-ux-slash-ui-design.png'
+              ),
+              IntroPage(
+                title: '¡Levántate más bonito!',
+                description: 'Recibe un mensajito lindo para levantarte con mucho amor todos los días <3',
+                image: '3d-casual-life-like.png'
+              ),
+              IntroPage(
+                title: 'Cartitas... ¡sorpresa!',
+                description: '¡Prepárate para recibir una cartita sorpresa en nuestras fechas especiales!',
+                image: '3d-casual-life-thank-you-letter-in-envelope.png'
+              ),
+              IntroPage(
+                title: '¿Extrañas mi voz?',
+                description: 'Escucha uno de los audios que grabé solo para tí :)',
+                image: '3d-casual-life-airpods-max-pink.png'
+              ),
+              IntroPage(
+                title: '¿Quieres un abracito?',
+                description: 'Envíame un mensajito directo a mi teléfono, una vez al día :D',
+                image: 'casual-life-3d-young-man-texting-his-significant-other.png'
+              ),
+              IntroPage(
+                title: '¿Quieres cortarme?',
+                description: 'Revisa la configuración de la app, a ver que pasa...',
+                image: '3d-casual-life-screwdriver-and-wrench-as-settings.png'
+              ),
+              IntroPage(
+                title: 'Te adoro <3',
+                description: 'Espero que te guste muchísimo este regalito mi vida, te amo 🥺',
+                image: '3d-casual-life-chatgpt-robot-with-heart.png'
+              ),
             ],
           ),
 
@@ -57,7 +87,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                 SmoothPageIndicator(
                   controller: _controller,
-                  count: 3,
+                  count: 7,
                   effect: WormEffect(
                     activeDotColor: Colors.deepPurple.shade700,
                     dotColor: Colors.deepPurple.shade100,
