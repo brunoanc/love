@@ -18,7 +18,7 @@ class IntroPage extends StatelessWidget {
 
     return SafeArea(
       child: Container(
-        color: Colors.deepPurple.shade400,
+        color: Colors.deepPurple.shade300,
         child: Center(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
