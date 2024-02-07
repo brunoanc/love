@@ -16,7 +16,7 @@ class _FirstTimeIntroState extends State<FirstTimeIntro> with AfterLayoutMixin<F
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool seen = (prefs.getBool('seen') ?? false);
 
-    if (seen) {
+    if (!seen) { // CHANGE
       if (!context.mounted) return;
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const HomePage()));
