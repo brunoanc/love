@@ -18,7 +18,6 @@ Future<void> main() async {
     androidNotificationChannelId: 'com.powerball253.love.audio',
     androidNotificationChannelName: 'Audio playback',
     androidNotificationOngoing: true,
-    // androidNotificationIcon CHANGE
   );
 
   runApp(const MainApp());
