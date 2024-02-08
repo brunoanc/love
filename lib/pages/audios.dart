@@ -6,42 +6,47 @@ import 'package:rxdart/rxdart.dart';
 final _playlist = ConcatenatingAudioSource(children: [
   AudioSource.uri(
     Uri.parse('asset:///assets/audio/1.mp3'),
-    tag: const MediaItem(
+    tag: MediaItem(
       id: '1',
       album: 'Audios <3',
       title: 'Audio #1',
+      artUri: Uri.parse('https://www.colorhexa.com/9575cd.png'),
     ),
   ),
   AudioSource.uri(
     Uri.parse('asset:///assets/audio/2.mp3'),
-    tag: const MediaItem(
+    tag: MediaItem(
       id: '2',
       album: 'Audios <3',
       title: 'Audio #2',
+      artUri: Uri.parse('https://www.colorhexa.com/9575cd.png'),
     ),
   ),
   AudioSource.uri(
     Uri.parse('asset:///assets/audio/3.mp3'),
-    tag: const MediaItem(
+    tag: MediaItem(
       id: '3',
       album: 'Audios <3',
       title: 'Audio #3',
+      artUri: Uri.parse('https://www.colorhexa.com/9575cd.png'),
     ),
   ),
   AudioSource.uri(
     Uri.parse('asset:///assets/audio/4.mp3'),
-    tag: const MediaItem(
+    tag: MediaItem(
       id: '4',
       album: 'Audios <3',
       title: 'Audio #4',
+      artUri: Uri.parse('https://www.colorhexa.com/9575cd.png'),
     ),
   ),
   AudioSource.uri(
     Uri.parse('asset:///assets/audio/5.mp3'),
-    tag: const MediaItem(
+    tag: MediaItem(
       id: '5',
       album: 'Audios <3',
       title: 'Audio #5',
+      artUri: Uri.parse('https://www.colorhexa.com/9575cd.png'),
     ),
   ),
 ]);
