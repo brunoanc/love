@@ -188,28 +188,16 @@ final frasesMap = SplayTreeMap<String, String>.from({
 
 final especialMap = SplayTreeMap<String, String>.from({
 '2024-02-11': '''
+¡Feliz cumpleaños mi princesita preciosa!
+En este día tan especial e importante para todo el mundo (porque se celebra el nacimiento de la princesita más preciosa que existe), solo quiero recordarte que eres la persona más increíble que he conocido en mi vida. Tienes una chispita preciosa que me motiva a ser mejor cada día, la carita más bonita y la sonrisita más preciosa del mundo, l
 ''',
 '2024-02-14': '''
 ''',
-'2024-02-15': '''
-''',
 '2024-02-22': '''LE MANDE MENSAJE POR LA INVESTIGACION
-''',
-'2024-03-08': '''
-''',
-'2024-03-15': '''
 ''',
 '2024-03-17': '''NOS SENTARON JUNTAS
 ''',
-'2024-04-08': '''
-''',
-'2024-04-15': '''
-''',
 '2024-04-28': '''CLAUSURA SM? podria poner todo lo que quise decirle...
-''',
-'2024-05-08': '''
-''',
-'2024-05-15': '''
 ''',
 '2024-05-22': '''PRESENTACION CON MAESTROS Y EQUIPO JUNTAS
 ''',
@@ -219,17 +207,11 @@ final especialMap = SplayTreeMap<String, String>.from({
 ''',
 '2024-06-14': '''CONSEGUIMOS BOLETOS TAYLOR
 ''',
-'2024-06-08': '''
-''',
-'2024-06-15': '''
-''',
 '2024-06-23': '''MUNAM D2
 ''',
 '2024-07-01': '''PASEO DE MONTEJO
 ''',
 '2024-07-07': '''GALERÍAS
-''',
-'2024-07-08': '''
 ''',
 '2024-07-13': '''ME DIO LA PULSERA
 ''',
