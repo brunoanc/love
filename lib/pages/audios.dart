@@ -76,6 +76,7 @@ class _AudiosState extends State<Audios> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
         bottom: false,
@@ -97,6 +98,7 @@ class _AudiosState extends State<Audios> {
                   return Padding(
                     padding: const EdgeInsets.fromLTRB(3, 1, 3, 1),
                     child: Card(
+                      color: theme.colorScheme.surfaceContainerHighest,
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
                           color: selected ? Colors.deepPurple.shade400 : Colors.transparent,

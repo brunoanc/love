@@ -65,6 +65,6 @@ class DefaultFirebaseOptions {
     projectId: 'love-dbe0b',
     databaseURL: 'https://love-dbe0b-default-rtdb.firebaseio.com',
     storageBucket: 'love-dbe0b.appspot.com',
-    iosBundleId: 'com.powerball253.love',
+    iosBundleId: 'io.github.bruno.love',
   );
 }

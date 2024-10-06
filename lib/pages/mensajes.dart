@@ -76,7 +76,7 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                       return CupertinoButton(
                         padding: const EdgeInsets.fromLTRB(35, 20, 35, 20),
                         borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
-                        color: theme.colorScheme.surface,
+                        color: theme.colorScheme.surfaceContainerHighest,
                         onPressed: () {
                           Future.delayed(const Duration(milliseconds: 20), () {
                             showDialog<String>(
@@ -90,13 +90,13 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                                       enableSuggestions: false,
                                       minLines: 4,
                                       maxLines: null,
-                                      cursorColor: theme.colorScheme.onBackground.withAlpha(0x7f),
+                                      cursorColor: theme.colorScheme.onSurface.withAlpha(0x7f),
                                       decoration: InputDecoration(
-                                        enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onBackground.withAlpha(0x7f))),
-                                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onBackground, width: 1.5)),
+                                        enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onSurface.withAlpha(0x7f))),
+                                        focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onSurface, width: 1.5)),
                                         labelText: 'Escribe tu mensajito',
-                                        labelStyle: TextStyle(color: theme.colorScheme.onBackground.withAlpha(0x7f)),
-                                        floatingLabelStyle: TextStyle(color: theme.colorScheme.onBackground),
+                                        labelStyle: TextStyle(color: theme.colorScheme.onSurface.withAlpha(0x7f)),
+                                        floatingLabelStyle: TextStyle(color: theme.colorScheme.onSurface),
                                         alignLabelWithHint: true,
                                       ),
                                       keyboardType: TextInputType.multiline,
@@ -109,13 +109,13 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                                         onPressed: () {
                                           Navigator.pop(context, '');
                                         },
-                                        child: Text('Cancelar', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                        child: Text('Cancelar', style: TextStyle(color: theme.colorScheme.onSurface)),
                                       ),
                                       TextButton(
                                         onPressed: mensaje.isEmpty ? null : () {
                                           Navigator.pop(context, mensaje);
                                         },
-                                        child: Text('Enviar', style: TextStyle(color: mensaje.isEmpty ? theme.colorScheme.onBackground.withAlpha(0x4c) : theme.colorScheme.onBackground)),
+                                        child: Text('Enviar', style: TextStyle(color: mensaje.isEmpty ? theme.colorScheme.onSurface.withAlpha(0x4c) : theme.colorScheme.onSurface)),
                                       ),
                                     ],
                                     contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
@@ -144,7 +144,7 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                                 showDialog(
                                   context: context,
                                   builder: (BuildContext context) => AlertDialog(
-                                    title: Text('¡Mensaje enviado con éxito! <3', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                    title: Text('¡Mensaje enviado con éxito! <3', style: TextStyle(color: theme.colorScheme.onSurface)),
                                     content: const Text(
                                       'Tu mensaje debería llegarle a Bruno dentro de poco tiempo :)',
                                       textAlign: TextAlign.justify,
@@ -154,7 +154,7 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                                         onPressed: () {
                                           Navigator.pop(context);
                                         },
-                                        child: Text('OK', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                        child: Text('OK', style: TextStyle(color: theme.colorScheme.onSurface)),
                                       ),
                                     ],
                                     contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
@@ -177,7 +177,7 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                               const SizedBox(width: 10),
                               Text(
                                 'Escribir mensajito',
-                                style: theme.textTheme.headlineMedium,
+                                style: theme.textTheme.headlineMedium?.copyWith(color: Colors.white),
                                 textAlign: TextAlign.center,
                               ),
                             ],
@@ -189,7 +189,7 @@ class _MensajesState extends State<Mensajes> with AutomaticKeepAliveClientMixin 
                       return ElevatedButton(
                         onPressed: null,
                         style: ElevatedButton.styleFrom(
-                          disabledBackgroundColor: theme.colorScheme.surface,
+                          disabledBackgroundColor: theme.colorScheme.surfaceContainerHighest,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),

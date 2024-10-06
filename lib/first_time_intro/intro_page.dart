@@ -35,7 +35,8 @@ class IntroPage extends StatelessWidget {
                 Text(
                   title,
                   style: theme.textTheme.displaySmall?.copyWith(
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -47,7 +48,8 @@ class IntroPage extends StatelessWidget {
                   child: Text(
                     description,
                     style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.normal
+                      fontWeight: FontWeight.normal,
+                      color: Colors.white,
                     ),
                     textAlign: TextAlign.center,
                   ),

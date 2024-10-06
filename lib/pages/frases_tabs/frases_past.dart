@@ -29,7 +29,7 @@ class FrasesPast extends StatelessWidget {
             CupertinoButton(
               padding: const EdgeInsets.fromLTRB(35, 20, 35, 20),
               borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
-              color: theme.colorScheme.surface,
+              color: theme.colorScheme.surfaceContainerHighest,
               onPressed: () {
                 Future.delayed(const Duration(milliseconds: 20), () {
                   showGeneralDialog<DateTime>(
@@ -43,7 +43,7 @@ class FrasesPast extends StatelessWidget {
                             onSurfaceVariant: Colors.white,
                           ),
                         ).copyWith(datePickerTheme: DatePickerThemeData(
-                          shadowColor: theme.colorScheme.onBackground,
+                          shadowColor: theme.colorScheme.onSurface,
                           dividerColor: Colors.deepPurple.shade300,
                           weekdayStyle: TextStyle(fontWeight: FontWeight.w900, color: Colors.deepPurple.shade500),
                           headerForegroundColor: Colors.deepPurple.shade500
@@ -81,11 +81,11 @@ class FrasesPast extends StatelessWidget {
                             floatingActionButton:  CupertinoButton(
                               padding: const EdgeInsets.fromLTRB(35, 10, 35, 10),
                               borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
-                              color: theme.colorScheme.surface,
+                              color: theme.colorScheme.surfaceContainerHighest,
                               onPressed: () => Navigator.pop(context),
                               child: Text(
                                 'Regresar',
-                                style: theme.textTheme.bodyLarge,
+                                style: theme.textTheme.bodyLarge?.copyWith(color: Colors.white),
                                 textAlign: TextAlign.center,
                               ),
                             ),
@@ -113,6 +113,7 @@ class FrasesPast extends StatelessWidget {
                                         style: theme.textTheme.titleLarge!.copyWith(
                                           fontWeight: FontWeight.normal,
                                           fontFamily: 'Bruno',
+                                          color: Colors.white,
                                         ),
                                         textAlign: TextAlign.center,
                                       ),
@@ -154,7 +155,7 @@ class FrasesPast extends StatelessWidget {
                     const SizedBox(width: 10),
                     Text(
                       'Seleccionar fecha',
-                      style: theme.textTheme.headlineMedium,
+                      style: theme.textTheme.headlineMedium?.copyWith(color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ],

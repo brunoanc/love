@@ -103,6 +103,7 @@ class _EspecialDayState extends State<EspecialDay> with AutomaticKeepAliveClient
                       style: theme.textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.normal,
                         fontFamily: 'Bruno',
+                        color: Colors.white,
                       ),
                       textAlign: TextAlign.justify,
                     );
@@ -118,6 +119,7 @@ class _EspecialDayState extends State<EspecialDay> with AutomaticKeepAliveClient
                   'Ya no hay mas mensajitos especiales, pero siempre recuerda que te quiero bebé <3',
                   style: theme.textTheme.titleLarge!.copyWith(
                     fontWeight: FontWeight.normal,
+                    color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
                 )

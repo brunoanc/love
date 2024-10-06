@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: AnimatedNotchBottomBar(
         notchBottomBarController: _controller,
         showLabel: false,
-        color: theme.colorScheme.surface,
+        color: theme.colorScheme.surfaceContainerHighest,
         itemLabelStyle: const TextStyle(color: Color.fromARGB(255, 217, 217, 217)),
         bottomBarItems: [
           BottomBarItem(

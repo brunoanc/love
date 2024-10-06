@@ -6,7 +6,7 @@
     <application
         android:label="Mensajito Diario"
         android:name="${applicationName}"
-        android:icon="@mipmap/launcher_icon">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name="com.ryanheise.audioservice.AudioServiceActivity"
             android:exported="true"

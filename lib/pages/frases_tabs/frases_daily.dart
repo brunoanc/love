@@ -41,6 +41,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
         style: theme.textTheme.titleLarge!.copyWith(
           fontWeight: FontWeight.normal,
           fontFamily: 'Bruno',
+          color: Colors.white,
         ),
         textAlign: TextAlign.center,
       ),
@@ -77,6 +78,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
                         'Ya no hay mas mensajitos, pero siempre recuerda que te amo corazón <3',
                         style: theme.textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.normal,
+                          color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -94,7 +96,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
                         ? CupertinoButton(
                           padding: const EdgeInsets.fromLTRB(35, 20, 35, 20),
                           borderRadius: const BorderRadius.all(Radius.elliptical(100, 100)),
-                          color: theme.colorScheme.surface,
+                          color: theme.colorScheme.surfaceContainerHighest,
                           child: FittedBox(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -107,7 +109,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
                                 const SizedBox(width: 10),
                                 Text(
                                   loadingButtonText,
-                                  style: theme.textTheme.displaySmall,
+                                  style: theme.textTheme.displaySmall?.copyWith(color: Colors.white),
                                   textAlign: TextAlign.center,
                                 ),
                               ],
@@ -143,7 +145,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
                         : ElevatedButton(
                           onPressed: null,
                           style: ElevatedButton.styleFrom(
-                            disabledBackgroundColor: theme.colorScheme.surface,
+                            disabledBackgroundColor: theme.colorScheme.surfaceContainerHighest,
                           ),
                           child: Padding(
                             padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
@@ -159,7 +161,7 @@ class _FrasesDailyState extends State<FrasesDaily> with AutomaticKeepAliveClient
                                   const SizedBox(width: 10),
                                   Text(
                                     loadingButtonText,
-                                    style: theme.textTheme.headlineSmall,
+                                    style: theme.textTheme.headlineSmall?.copyWith(color: Colors.white),
                                     textAlign: TextAlign.center,
                                   ),
                                 ],

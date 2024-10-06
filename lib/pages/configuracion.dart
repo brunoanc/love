@@ -16,11 +16,11 @@ class Configuracion extends StatelessWidget {
         child: Center(
           child: SettingsList(
             darkTheme: SettingsThemeData(
-              settingsListBackground: theme.colorScheme.background,
-              titleTextColor: theme.colorScheme.onBackground,
+              settingsListBackground: theme.colorScheme.surface,
+              titleTextColor: theme.colorScheme.onSurface,
               leadingIconsColor: Colors.deepPurple.shade400,
               tileDescriptionTextColor: Colors.deepPurple.shade400,
-              settingsTileTextColor: theme.colorScheme.onBackground,
+              settingsTileTextColor: theme.colorScheme.onSurface,
             ),
             sections: [
               SettingsSection(
@@ -31,12 +31,12 @@ class Configuracion extends StatelessWidget {
                     leading: const Icon(Icons.favorite_outline),
                     title: const Text('Estado de la relación'),
                     description: const Text('Juntitas'),
-                    activeSwitchColor: theme.colorScheme.onBackground,
+                    activeSwitchColor: theme.colorScheme.onSurface,
                     onToggle: (value) {
                       showDialog<bool>(
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
-                          title: Text('¿Me vas a cortar?', style: TextStyle(color: theme.colorScheme.onBackground)),
+                          title: Text('¿Me vas a cortar?', style: TextStyle(color: theme.colorScheme.onSurface)),
                           content: Image.asset(
                             fit: BoxFit.cover,
                             'assets/images/drama.png'
@@ -46,7 +46,7 @@ class Configuracion extends StatelessWidget {
                               onPressed: () {
                                 Navigator.pop(context, false);
                               },
-                              child: Text('No', style: TextStyle(color: theme.colorScheme.onBackground)),
+                              child: Text('No', style: TextStyle(color: theme.colorScheme.onSurface)),
                             ),
                             TextButton(
                               onPressed: () {
@@ -63,7 +63,7 @@ class Configuracion extends StatelessWidget {
                           showDialog<bool>(
                             context: context,
                             builder: (BuildContext context) => AlertDialog(
-                              title: Text('¿Segura de que quieres cortarme?', style: TextStyle(color: theme.colorScheme.onBackground)),
+                              title: Text('¿Segura de que quieres cortarme?', style: TextStyle(color: theme.colorScheme.onSurface)),
                               content: Image.asset(
                                 fit: BoxFit.cover,
                                 'assets/images/hamster.png'
@@ -73,7 +73,7 @@ class Configuracion extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.pop(context, false);
                                   },
-                                  child: Text('No', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                  child: Text('No', style: TextStyle(color: theme.colorScheme.onSurface)),
                                 ),
                                 TextButton(
                                   onPressed: () {
@@ -90,7 +90,7 @@ class Configuracion extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
-                                  title: Text('No autorizo.', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                  title: Text('No autorizo.', style: TextStyle(color: theme.colorScheme.onSurface)),
                                   content: Image.asset(
                                     fit: BoxFit.cover,
                                     'assets/images/ew.png'
@@ -100,7 +100,7 @@ class Configuracion extends StatelessWidget {
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text('Soporta <3', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                      child: Text('Soporta <3', style: TextStyle(color: theme.colorScheme.onSurface)),
                                     ),
                                   ],
                                   contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 0),
@@ -135,7 +135,7 @@ class Configuracion extends StatelessWidget {
                                 onPressed: () => Navigator.pop(context),
                                 child: Text(
                                   'Regresar',
-                                  style: theme.textTheme.bodyLarge,
+                                  style: theme.textTheme.bodyLarge?.copyWith(color: Colors.white),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -229,16 +229,16 @@ class Configuracion extends StatelessWidget {
                           String password = '';
                           return StatefulBuilder(
                             builder: (context, setState) => AlertDialog(
-                              title: Text('Introduce la contraseña', style: TextStyle(color: theme.colorScheme.onBackground)),
+                              title: Text('Introduce la contraseña', style: TextStyle(color: theme.colorScheme.onSurface)),
                               content: TextField(
                                 obscureText: true,
-                                cursorColor: theme.colorScheme.onBackground.withAlpha(0x7f),
+                                cursorColor: theme.colorScheme.onSurface.withAlpha(0x7f),
                                 decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onBackground.withAlpha(0x7f))),
-                                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onBackground, width: 1.5)),
+                                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onSurface.withAlpha(0x7f))),
+                                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: theme.colorScheme.onSurface, width: 1.5)),
                                   labelText: 'Contraseña',
-                                  labelStyle: TextStyle(color: theme.colorScheme.onBackground.withAlpha(0x7f)),
-                                  floatingLabelStyle: TextStyle(color: theme.colorScheme.onBackground),
+                                  labelStyle: TextStyle(color: theme.colorScheme.onSurface.withAlpha(0x7f)),
+                                  floatingLabelStyle: TextStyle(color: theme.colorScheme.onSurface),
                                   alignLabelWithHint: true,
                                 ),
                                 keyboardType: TextInputType.visiblePassword,
@@ -251,7 +251,7 @@ class Configuracion extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.pop(context, '');
                                   },
-                                  child: Text('Cancelar', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                  child: Text('Cancelar', style: TextStyle(color: theme.colorScheme.onSurface)),
                                 ),
                                 TextButton(
                                   onPressed: (password != 'uL6u\$32f8*rq4L') ? null : () {
@@ -274,7 +274,7 @@ class Configuracion extends StatelessWidget {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) => AlertDialog(
-                              title: Text('Valores reestablecidos', style: TextStyle(color: theme.colorScheme.onBackground)),
+                              title: Text('Valores reestablecidos', style: TextStyle(color: theme.colorScheme.onSurface)),
                               content: const Text(
                                 'Los valores de la aplicación fueros reestablecidos exitosamente.',
                                 textAlign: TextAlign.justify,
@@ -284,7 +284,7 @@ class Configuracion extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
-                                  child: Text('OK', style: TextStyle(color: theme.colorScheme.onBackground)),
+                                  child: Text('OK', style: TextStyle(color: theme.colorScheme.onSurface)),
                                 ),
                               ],
                               contentPadding: const EdgeInsets.fromLTRB(20, 25, 20, 0),

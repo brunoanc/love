@@ -15,7 +15,7 @@ Future<void> main() async {
     .then((value) => FirebaseMessaging.instance.subscribeToTopic('xime'));
 
   await JustAudioBackground.init(
-    androidNotificationChannelId: 'com.powerball253.love.audio',
+    androidNotificationChannelId: 'io.github.bruno.love.audio',
     androidNotificationChannelName: 'Audio playback',
     androidNotificationOngoing: true,
   );
@@ -46,10 +46,10 @@ class MainApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
           brightness: Brightness.dark,
-          background: const Color(0xffd3bbff),
-          onBackground: const Color(0xff3f008d),
-          surface: const Color.fromARGB(255, 191, 160, 248),
-          onSurface: Colors.white,
+          surface: const Color(0xffd3bbff),
+          onSurface: const Color(0xff3f008d),
+          surfaceContainerHighest: const Color.fromARGB(255, 191, 160, 248),
+          //onSurfaceContainerHighest: Colors.white,
         ),
       ),
       builder: (context, child) {
