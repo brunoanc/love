@@ -1,3 +1,3 @@
-# love
+# Love app
 
-A new Flutter project.
+App de regalo para San Valentín.
